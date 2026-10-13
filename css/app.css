@@ -17,3 +17,5 @@
 .exhibit{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.exhibit .statement{padding:14px}.exhibit td.l,.exhibit th.l{text-align:left}.exhibit tr.total td{font-weight:700;border-top:1px solid var(--ink,#1a1a1a)}.exhibit tr.highlight td{background:var(--tint)}.exhibit .statement-head{margin-bottom:10px}
 @media (max-width:700px){.why-grid{grid-template-columns:1fr}}
 .head-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+
+.five table.t{font-size:.95rem}.five td.r{text-align:right;font-variant-numeric:tabular-nums}.five td.tag{font-size:.78rem;color:var(--muted)}.five tr.hl td{background:var(--tint);font-weight:700}.five td.tag.cash{color:#1f6f4a;font-weight:700}
