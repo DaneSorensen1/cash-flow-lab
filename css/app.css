@@ -19,3 +19,5 @@
 .head-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 
 .five table.t{font-size:.95rem}.five td.r{text-align:right;font-variant-numeric:tabular-nums}.five td.tag{font-size:.78rem;color:var(--muted)}.five tr.hl td{background:var(--tint);font-weight:700}.five td.tag.cash{color:#1f6f4a;font-weight:700}
+
+.goal .big{font-family:var(--serif,Georgia),serif;font-size:1.3rem;margin:6px 0 10px}.goal table.t td.k{width:40%}
