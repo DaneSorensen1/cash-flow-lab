@@ -7,7 +7,7 @@ export async function boot(initial=null, page='index.html', carry=null){
  const {window}=parseHTML(fs.readFileSync(new URL('../../'+page,import.meta.url),'utf8'));
  globalThis.window=window;globalThis.document=window.document;globalThis.location={hash:''};
  const local={getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};globalThis.localStorage=local;
- window.CFL_CONFIG={appName:'Cash Flow Lab',blocks:[{id:'1',name:'Test class',code:'FLOW1'}],requireCode:false,terminology:{unearnedRevenue:'Unearned Revenue'},curriculum:{},practice:{focusSize:6,mixedSize:10,retryMinGap:3,retryMaxGap:7},mastery:{},assessment:{},firebase:null};
+ window.CFL_CONFIG={appName:'Cash Flow Lab',blocks:[{id:'1',name:'Test class',code:'FLOW1'}],requireCode:false,terminology:{unearnedRevenue:'Unearned Revenue'},curriculum:{openMap:true},practice:{focusSize:6,mixedSize:10,retryMinGap:3,retryMaxGap:7},mastery:{},assessment:{},firebase:null};
  window.scrollTo=()=>{};
  // linkedom models DOM trees, but does not implement the browser select-value setter.
  Object.defineProperty(window.HTMLSelectElement.prototype,'value',{configurable:true,get(){const o=this.querySelector('option[selected]')||this.querySelector('option');return o?.getAttribute('value')??o?.textContent??'';},set(value){for(const o of this.querySelectorAll('option')){if(o.getAttribute('value')===String(value))o.setAttribute('selected','');else o.removeAttribute('selected');}}});

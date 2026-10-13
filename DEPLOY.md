@@ -1,3 +1,9 @@
+# Live deployment (October 13, 2026)
+
+- Students: https://danesorensen1.github.io/cash-flow-lab-gpt/ — block Gold 3, code **FLOW3**
+- Teacher: https://danesorensen1.github.io/cash-flow-lab-gpt/teacher.html
+- Firebase: shared "journal-entry-arena" project, already in config.js. Two console steps remain: (1) Firestore → Rules → paste this repo's `firestore.rules` → Publish (it includes the arena's rules); (2) open teacher.html, copy the anonymous id it shows, Firestore → Start collection `cfl_teachers` → document id = that id → field `ok` boolean true → Save.
+
 # Deployment
 
 ## Path A — GitHub Pages with local progress

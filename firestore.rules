@@ -47,5 +47,11 @@ service cloud.firestore {
         && request.resource.data.eligible is bool;
       allow delete: if owner(uid) || teacher();
     }
+
+    // ---- Journal Entry Arena (same Firebase project) — keep these so the arena keeps working ----
+    match /players/{uid}  { allow read: if signedIn(); allow create: if signedIn() && request.auth.uid == request.resource.id; allow update: if signedIn() && request.auth.uid == resource.id; allow delete: if false; }
+    match /stats/{uid}    { allow read: if signedIn(); allow create: if signedIn() && request.auth.uid == request.resource.id; allow update: if signedIn() && request.auth.uid == resource.id; allow delete: if false; }
+    match /attempts/{id}  { allow create: if signedIn() && request.resource.data.uid == request.auth.uid; allow read: if signedIn() && exists(/databases/$(database)/documents/teachers/$(request.auth.uid)); allow update, delete: if false; }
+    match /teachers/{uid} { allow read: if signedIn() && request.auth.uid == uid; allow write: if false; }
   }
 }

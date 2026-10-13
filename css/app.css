@@ -10,3 +10,6 @@
 
 /* Explicit recognition/cash comparisons in the existing timing introduction. */
 .worked-story{min-width:0}.worked-story>.timeline{margin-bottom:14px}.worked-case{padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--paper);margin:12px 0}.worked-table{overflow-x:auto}.worked-table table{width:100%;border-collapse:collapse;font-size:.88rem}.worked-table caption{text-align:left;font-weight:700;margin-bottom:8px}.worked-table th,.worked-table td{padding:9px 5px;border-bottom:1px solid var(--line);text-align:left}.worked-table tbody th{font-weight:500}.worked-table td:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.worked-equation{padding:12px;background:var(--tint);border-radius:8px;margin-top:14px;font-weight:650}.worked-reverse{margin:14px 0}.worked-reverse>summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:650}.worked-case p:last-child{margin-bottom:0}@media(max-width:600px){.worked-case{padding:14px}.worked-table table{font-size:.8rem}}
+
+/* v1.1.1 classroom fixes */
+.module-head{align-items:flex-start}.head-side{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.head-side .status{margin:0}.node.locked{opacity:.55;cursor:not-allowed}.node.locked .num{background:transparent}

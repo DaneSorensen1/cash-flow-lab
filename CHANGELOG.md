@@ -1,3 +1,11 @@
+## 1.1.1 — October 13, 2026 (classroom deployment)
+
+- Learning path is now soft-gated: modules unlock in order ("Unlocks after …"); the guided capstone unlocks after the Financing module. Set `curriculum.openMap: true` in config.js to open every module.
+- Every lesson screen has a "← Learning path" exit; the status pill no longer stretches into an empty box on desktop.
+- Class code required (block "Gold 3 — Advanced Accounting", code FLOW3).
+- Firebase class record wired to the shared Journal Entry Arena project (cfl_ collections); firestore.rules now includes the arena's rules so both apps run on one project.
+- Browser-verified at 1366×768 and 390×844: join, wrong-answer remediation, hints, exit, gating. Node and DOM-flow suites still pass (92 + 5).
+
 # Changes
 
 ## 1.1.0 — October 13, 2026 — portable GitHub handoff
