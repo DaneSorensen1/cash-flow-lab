@@ -15,11 +15,14 @@ test('All 12 teaching examples reconcile recognition, balance changes, and cash'
    assert.ok(i===0?change>0:change<0,concept);
    assert.ok(c.begin>=0&&c.end>=0);
   }
-  // Preserve learning positions and generated problem seeds across this update.
+  // A stable case is predicted, explained, completed, then transferred to fresh numbers.
   const items=lesson(concept);
-  assert.equal(items.length,5);
-  assert.equal(items[0].visual.workedStory,concept);
-  assert.deepEqual(items.slice(1).map(p=>p.seed),[103,208,317,422]);
+  assert.equal(items.length,10);assert.equal(items[0].type,'observe');assert.match(items[0].title,/What are we trying to do here/);
+  assert.deepEqual(items.filter(p=>p.scaffoldLevel>=2).map(p=>p.seed),[317,422]);
+  assert.deepEqual(items.filter(p=>p.scaffoldLevel>=2).map(p=>p.direction),['increase','decrease']);
+  assert.equal(items[3].visual.learning.index,0);
+  assert.equal(items[7].visual.learning.index,1);
+
  }
 });
 

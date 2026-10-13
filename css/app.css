@@ -21,3 +21,6 @@
 .five table.t{font-size:.95rem}.five td.r{text-align:right;font-variant-numeric:tabular-nums}.five td.tag{font-size:.78rem;color:var(--muted)}.five tr.hl td{background:var(--tint);font-weight:700}.five td.tag.cash{color:#1f6f4a;font-weight:700}
 
 .goal .big{font-family:var(--serif,Georgia),serif;font-size:1.3rem;margin:6px 0 10px}.goal table.t td.k{width:40%}
+
+/* Accounting-native teaching exhibits: readable labels, aligned amounts, no color-only meaning. */
+.learning-exhibits{display:grid;gap:16px;min-width:0}.learning-statement{min-width:0;overflow-x:auto}.learning-statement table{width:100%;border-collapse:collapse}.learning-statement th{text-align:left;font-weight:400;padding:9px 10px;overflow-wrap:anywhere}.learning-statement td{text-align:right;white-space:nowrap;padding:9px 10px;font-variant-numeric:tabular-nums}.learning-statement .total th,.learning-statement .total td{font-weight:700;border-top:1px solid currentColor;border-bottom:3px double currentColor}.learning-exhibits .notice{margin:0}.lesson-observe>div{min-width:0}@media(max-width:600px){.learning-statement{padding:14px}.learning-statement th,.learning-statement td{padding:8px 5px;font-size:14px}}

@@ -1,5 +1,5 @@
-export const VERSION = '1.1.0';
-export const CONTENT_VERSION = '2026.10.13.1';
+export const VERSION = '1.2.0-learning';
+export const CONTENT_VERSION = '2026.10.13.2';
 export const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const money = n => n < 0 ? `($${Math.abs(n).toLocaleString('en-US')})` : `$${n.toLocaleString('en-US')}`;
 export const signed = n => `${n < 0 ? 'Subtract' : 'Add'} ${money(Math.abs(n))}`;
