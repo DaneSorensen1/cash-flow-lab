@@ -1,3 +1,14 @@
+## 1.2.0 — October 13, 2026 (learning revision)
+
+- Six timing modules, depreciation and gains/losses rebuilt as ladders: plain-language opener (why we care, an everyday story) → predict → worked statements with the same numbers → supported completion → fresh numbers; the increase case is finished before the decrease case begins.
+- Gains/losses: one introduction; carrying amount described as unallocated cost; fresh-number sale problems require the student to choose section, effect and amount (guidance moved to question-specific hints).
+- Effect menus are contextual: Operating lines say add to / subtract from Net Income; Investing and Financing say inflow / outflow. Matching negative notation accepted; conflicting sign rejected before recording.
+- Hints start at the current reasoning step; full reasoning opens only after the last prompt; a revealed worked answer marks later answers in that problem as supported.
+- Evidence: Secure requires unhinted success and skill coverage; pre-revision sale evidence treated as guided; attempts carry a problem snapshot; M34 separates source-location slips from section classification.
+- Progress preserved: positions in revised modules restart at the first screen; attempts, completed modules, identity, capstones and drafts remain; a saved in-progress question finishes first.
+- Teacher page: conversation plans (probes, listen-for, 2-minute reteach, fresh check with key) added to help cards, module keys and student detail; replay uses snapshots.
+- Printable pre/post checks and next-class guide in docs/learning-revision/.
+
 ## 1.1.2 — October 13, 2026 (foundation + review fixes)
 
 - Cash Mystery now opens with *why* cash and profit are different questions (June story: $950 profit, +$650 cash, Friday's $800 loan payment) before the mission.
