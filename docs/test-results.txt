@@ -1,0 +1,140 @@
+$ npm test
+
+> cash-flow-lab@1.1.0 test
+> node --test tests/*.test.mjs
+
+✔ Change is ending minus beginning; zero is supported (1.589107ms)
+✔ accounts_receivable uses opposite sign to change (0.236065ms)
+✔ inventory uses opposite sign to change (0.211477ms)
+✔ prepaid_expenses uses opposite sign to change (0.195334ms)
+✔ accounts_payable uses same sign as change (0.278919ms)
+✔ accrued_liabilities uses same sign as change (0.121262ms)
+✔ unearned_revenue uses same sign as change (0.14632ms)
+✔ Cash and financing debt are rejected as timing accounts (0.448233ms)
+✔ Inventory on credit offsets exactly (0.184237ms)
+✔ Depreciation removes noncash expense effect (0.313611ms)
+✔ Gain is removed and actual proceeds remain distinct (3.72754ms)
+✔ Loss is added, proceeds are not book value (0.295233ms)
+✔ Invalid sale and gain/loss inputs are rejected (0.25999ms)
+✔ Gains and losses have opposite reconciliation signs (0.144297ms)
+✔ customer classification (0.136665ms)
+✔ wages classification (0.084627ms)
+✔ interest classification (0.127322ms)
+✔ ppe_purchase classification (0.091137ms)
+✔ ppe_sale classification (0.095073ms)
+✔ land classification (0.148644ms)
+✔ borrowing classification (0.069104ms)
+✔ debt_repayment classification (0.070897ms)
+✔ stock_issuance classification (0.06669ms)
+✔ dividends classification (0.132309ms)
+✔ noncash_investing_financing classification (0.097546ms)
+✔ Disclosure cannot inflate cash totals (0.300451ms)
+✔ Cash checksum (0.101443ms)
+✔ Blank numeric input cannot masquerade as zero (0.327953ms)
+✔ CSV safely escapes quotes, newlines and formula-like text (0.20616ms)
+✔ beacon-guided complete statement cash tie-out (1.481696ms)
+✔ beacon-guided complete source Balance Sheet and Income Statement tie (0.379601ms)
+✔ beacon-integrated complete statement cash tie-out (0.198499ms)
+✔ beacon-integrated complete source Balance Sheet and Income Statement tie (0.152079ms)
+✔ cedar-independent complete statement cash tie-out (0.286761ms)
+✔ cedar-independent complete source Balance Sheet and Income Statement tie (0.160902ms)
+✔ Required capstone totals match specification exactly (0.966633ms)
+✔ A tie cannot hide an omitted line or compensating errors (0.427011ms)
+✔ Duplicate and extra lines are rejected (0.310687ms)
+✔ Blank entered totals never pass, including zero (0.267492ms)
+✔ Operating-only workbench validates required subset (0.193911ms)
+✔ accounts_receivable: 1,000 seeded direction/balance/solution invariants (125.245666ms)
+✔ accounts_payable: 1,000 seeded direction/balance/solution invariants (66.536299ms)
+✔ accrued_liabilities: 1,000 seeded direction/balance/solution invariants (61.580895ms)
+✔ unearned_revenue: 1,000 seeded direction/balance/solution invariants (66.197556ms)
+✔ prepaid_expenses: 1,000 seeded direction/balance/solution invariants (71.514649ms)
+✔ inventory: 1,000 seeded direction/balance/solution invariants (85.319288ms)
+✔ depreciation: 200 reproducible valid variants (6.984097ms)
+✔ amortization: 200 reproducible valid variants (4.710907ms)
+✔ gain_on_sale: 200 reproducible valid variants (6.61674ms)
+✔ loss_on_sale: 200 reproducible valid variants (5.19896ms)
+✔ ppe_purchase: 200 reproducible valid variants (8.802515ms)
+✔ ppe_sale: 200 reproducible valid variants (5.700634ms)
+✔ borrowing: 200 reproducible valid variants (5.229496ms)
+✔ debt_repayment: 200 reproducible valid variants (4.210076ms)
+✔ stock_issuance: 200 reproducible valid variants (4.156304ms)
+✔ dividends: 200 reproducible valid variants (4.120159ms)
+✔ noncash_investing_financing: 200 reproducible valid variants (4.134421ms)
+✔ Every lesson has valid unique problems, coherent source rows, and observations (3.216482ms)
+✔ Terminology config changes generated labels, prompts, and explanations (0.238428ms)
+✔ No evidence → Not started; guided evidence never establishes mastery (1.978393ms)
+✔ Independent coverage moves through secure to mastered (0.382875ms)
+✔ Correct signs without correct meaning cannot establish mastery (0.268864ms)
+✔ Repeated attempts in one opportunity do not inflate mastery (0.231939ms)
+✔ Both timing directions and mixed evidence are required (1.180153ms)
+✔ Reveal is learned-from, never independent success (0.32608ms)
+✔ Hint evidence carries reduced weight (0.200411ms)
+✔ Retry scheduling waits 3–7 intervening opportunities (19.178773ms)
+✔ Due retries target skill, use fresh seed and consume queue (0.916127ms)
+✔ Mixed selector avoids a third consecutive concept when alternatives exist (0.789296ms)
+✔ Focused set varies six skills (1.05833ms)
+✔ State round trip preserves exact unfinished work, explanations, retry queue (3.757405ms)
+✔ Storage failure is reported; corrupt data is not silently overwritten (0.55276ms)
+✔ Append-only attempts preserve response, correct answer and diagnostic metadata (1.254956ms)
+✔ Null Firebase is an entirely local experience with no dynamic network import (0.548073ms)
+✔ Faded-scaffold errors can return to the missing cash connection (0.469135ms)
+✔ Weakest-skill practice targets the weak link instead of rotating past it (0.583767ms)
+✔ Source output uses accounting tables, beginning/ending columns, and escaping (26.698279ms)
+✔ Rendering never reveals computed change before student responds (0.375104ms)
+✔ Timing shortcuts unlock only after conceptual timing lesson (3.765648ms)
+✔ Statement placement renders the real section and negative amount (0.561093ms)
+✔ Prompt inputs restore drafts without changing problem facts (0.533371ms)
+✔ Zero disclosure needs deliberate zero input and section (0.959481ms)
+✔ A/R module full reasoning is answerable with source unchanged across steps (0.453822ms)
+✔ Arithmetic, reversed direction and wrong section have distinct diagnostics (0.352319ms)
+✔ beacon-guided builder supports target, construction, completion, and resume (1.45091ms)
+✔ beacon-integrated builder supports target, construction, completion, and resume (0.554393ms)
+✔ cedar-independent builder supports target, construction, completion, and resume (0.47211ms)
+✔ Public summary contains only sanitized display fields (2.765861ms)
+✔ Noncash amount and financing classifications preserve specific misconception codes (1.267383ms)
+✔ Full-context timing Balance Sheets balance in both periods (9.703713ms)
+✔ All 12 teaching examples reconcile recognition, balance changes, and cash (31.67783ms)
+✔ Worked examples distinguish separate cases, evidence sources, and scoped effects (1.345271ms)
+ℹ tests 92
+ℹ suites 0
+ℹ pass 92
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 652.09307
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+Exit code: 0
+
+$ npm run check
+
+> cash-flow-lab@1.1.0 check
+> node tests/check.mjs
+
+PASS: 33 JavaScript files syntax-checked; module graph and HTML assets resolve; null Firebase; no eval or embedded credentials.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+Exit code: 0
+
+$ npm run test:flows
+
+> cash-flow-lab@1.1.0 test:flows
+> node --test tests/integration/*.test.mjs
+
+✔ Real main module: join, all 17 lessons, practice and capstones (1236.759182ms)
+✔ Draft, hint, reference, and reload preserve the exact problem (21.868704ms)
+✔ Wrong cash connection gives an earlier-step dialog and returns to the same task (37.775802ms)
+✔ Teacher page renders real student diagnostics without Firebase (10.925684ms)
+✔ Switching lessons and practice preserves unfinished learning and correct evidence labels (20.801981ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1585.476249
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+Exit code: 0

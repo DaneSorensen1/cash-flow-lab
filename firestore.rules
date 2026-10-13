@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function owner(uid) { return signedIn() && request.auth.uid == uid; }
+    function teacher() { return signedIn() && exists(/databases/$(database)/documents/cfl_teachers/$(request.auth.uid)); }
+    function identity(d) {
+      return d.name is string && d.name.size() <= 40 && d.name.matches('^[^ ]+ [A-Z][.]$')
+        && d.block is string && d.block.size() <= 60;
+    }
+    function boardEnabled() {
+      return exists(/databases/$(database)/documents/cfl_settings/public)
+        && get(/databases/$(database)/documents/cfl_settings/public).data.leaderboardEnabled == true;
+    }
+    match /cfl_players/{uid} {
+      allow read: if owner(uid) || teacher();
+      allow create, update: if owner(uid) && request.resource.data.uid == uid && identity(request.resource.data)
+        && request.resource.data.keys().hasOnly(['uid','name','block','updatedAt']);
+    }
+    match /cfl_stats/{uid} {
+      allow read: if owner(uid) || teacher();
+      allow create, update: if owner(uid) && request.resource.data.uid == uid && identity(request.resource.data)
+        && request.resource.data.keys().hasOnly(['uid','name','block','currentModule','introduced','completedModules','concepts','skills','secure','mastered','recentAccuracy','hints','reveals','capstones','explanations','misconceptionCounts','needsHelp','recentAttempts','lastActive','attemptCount']);
+    }
+    match /cfl_attempts/{attemptId} {
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid
+        && identity(request.resource.data) && request.resource.data.attemptId is string
+        && attemptId == request.auth.uid + '_' + request.resource.data.attemptId;
+      allow read: if teacher() || (signedIn() && resource.data.uid == request.auth.uid);
+      // Author may probe their deterministic ID before first creation, for safe retry.
+      allow get: if signedIn() && attemptId.matches('^' + request.auth.uid + '_.*$');
+      allow update, delete: if false;
+    }
+    match /cfl_teachers/{uid} {
+      allow get: if owner(uid);
+      allow list, write: if false;
+    }
+    match /cfl_settings/public {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+    match /cfl_public_stats/{uid} {
+      allow read: if signedIn() && boardEnabled();
+      allow create, update: if owner(uid) && boardEnabled() && identity(request.resource.data)
+        && request.resource.data.keys().hasOnly(['name','block','mastered','capstones','eligible'])
+        && request.resource.data.mastered is number && request.resource.data.capstones is number
+        && request.resource.data.eligible is bool;
+      allow delete: if owner(uid) || teacher();
+    }
+  }
+}

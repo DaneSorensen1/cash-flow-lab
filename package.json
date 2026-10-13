@@ -1,0 +1,20 @@
+{
+  "name": "cash-flow-lab",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A local-first indirect statement of cash flows learning workbench",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node tests/check.mjs",
+    "dev": "python3 -m http.server 8000",
+    "test:flows": "node --test tests/integration/*.test.mjs",
+    "build:static": "node scripts/package-site.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.13"
+  }
+}
