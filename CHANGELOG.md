@@ -1,3 +1,10 @@
+## 1.1.2 — October 13, 2026 (foundation + review fixes)
+
+- Cash Mystery now opens with *why* cash and profit are different questions (June story: $950 profit, +$650 cash, Friday's $800 loan payment) before the mission.
+- Why Operating Is Different gained a fully tied exhibit: Income Statement, comparative Balance Sheet (both dates balance), and Statement of Cash Flows for the same June facts, with the source row and its adjustment line shaded together. $950 − $300 = $650 = change in Cash.
+- Preview mode: open the app with `?preview=1` to walk lessons with isolated storage and no class-record writes (banner shown, no class code needed).
+- Teacher page: "No records loaded" notice until a live snapshot or import exists; status line shows student count and time of last update; each class misconception now carries a suggested question to ask.
+
 ## 1.1.1 — October 13, 2026 (classroom deployment)
 
 - Teacher page is no longer linked from the student footer and asks for a teacher passcode (`teacherCode` in config.js). Class data remains protected by Firestore rules regardless.

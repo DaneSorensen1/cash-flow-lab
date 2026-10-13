@@ -13,3 +13,6 @@
 
 /* v1.1.1 classroom fixes */
 .module-head{align-items:flex-start}.head-side{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.head-side .status{margin:0}.node.locked{opacity:.55;cursor:not-allowed}.node.locked .num{background:transparent}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.why-card{padding:16px}.why-card .big{font-family:var(--serif,Georgia),serif;font-size:1.6rem;margin:4px 0 6px}.why-wide{grid-column:1/-1}
+.exhibit{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.exhibit .statement{padding:14px}.exhibit td.l,.exhibit th.l{text-align:left}.exhibit tr.total td{font-weight:700;border-top:1px solid var(--ink,#1a1a1a)}.exhibit tr.highlight td{background:var(--tint)}.exhibit .statement-head{margin-bottom:10px}
+@media (max-width:700px){.why-grid{grid-template-columns:1fr}}
