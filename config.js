@@ -3,6 +3,8 @@ window.CFL_CONFIG = {
   appName: 'Cash Flow Lab',
   blocks: [{ id: 'G3', name: 'Gold 3 — Advanced Accounting', code: 'FLOW3' }],
   requireCode: true,
+  // Passcode for teacher.html (light client-side gate; the class data itself is protected by Firestore rules).
+  teacherCode: 'BEACON-2026',
   terminology: { unearnedRevenue: 'Unearned Revenue' },
   // openMap: true lets students open any module from the map; false (default) unlocks modules in order.
   curriculum: { includeAccruedLiabilities: true, includeInventory: true, includeAmortization: true, includeNoncashDisclosure: true, openMap: false },

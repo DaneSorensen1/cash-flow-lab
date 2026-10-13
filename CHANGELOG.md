@@ -1,5 +1,8 @@
 ## 1.1.1 — October 13, 2026 (classroom deployment)
 
+- Teacher page is no longer linked from the student footer and asks for a teacher passcode (`teacherCode` in config.js). Class data remains protected by Firestore rules regardless.
+- Old v1.0 browser data found under the same storage key is set aside on first load instead of being read.
+
 - Learning path is now soft-gated: modules unlock in order ("Unlocks after …"); the guided capstone unlocks after the Financing module. Set `curriculum.openMap: true` in config.js to open every module.
 - Every lesson screen has a "← Learning path" exit; the status pill no longer stretches into an empty box on desktop.
 - Class code required (block "Gold 3 — Advanced Accounting", code FLOW3).
