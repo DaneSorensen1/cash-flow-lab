@@ -4,3 +4,5 @@
 
 .help-section{margin-bottom:24px}.help-card{border:1px solid var(--line);border-left:5px solid #c9843a;border-radius:10px;padding:12px 14px;margin:10px 0;background:var(--surface,#fff)}.help-card div{margin:3px 0}.help-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
 .mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}.mod-btn{display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px}.mod-btn .num{font-weight:700;color:var(--muted)}.mod-btn small{display:block;color:var(--muted)}.key-item{border-top:1px solid var(--line);padding:10px 0}.key-steps li{margin:6px 0}.key-ans{color:#1f6f4a;font-weight:600}.key-src{margin:8px 0;max-width:520px}
+
+.coach{margin-top:8px;border-top:1px dashed var(--line);padding-top:6px}.coach summary{cursor:pointer}.coach p{margin:6px 0}
