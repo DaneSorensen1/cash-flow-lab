@@ -17,3 +17,5 @@ details.help-card>summary{cursor:pointer;list-style:none;display:flex;justify-co
 details.plan{margin:8px 0;border:1px dashed var(--line);border-radius:8px;padding:6px 10px}details.plan>summary{cursor:pointer}
 
 .redo{color:#8a4b00}
+
+.mod-card{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface,#fff);display:flex;flex-direction:column;gap:8px}.mod-head{display:flex;gap:10px;align-items:flex-start}.mod-head .num{font-weight:700;color:var(--muted)}.mod-head small{display:block;color:var(--muted)}.mod-actions{display:flex;gap:8px;flex-wrap:wrap}.mod-actions .btn{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:inherit;font-size:.85rem}.mod-actions button.small{padding:6px 10px;font-size:.85rem}.changed{color:#8a4b00;font-weight:600}

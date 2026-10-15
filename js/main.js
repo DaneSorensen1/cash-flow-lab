@@ -17,7 +17,7 @@ import {referenceHTML,timingMatrix,checklist} from './ui/reference.js';
 import {promptInputs,readDraft,responseFor,completeDraft} from './ui/prompts.js';
 import {renderBuilder,handleBuilder,startCapstone,currentCapLines} from './ui/builder.js';
 import {createCloud} from './cloud/firebase.js';
-const PREVIEW=/[?&]preview\b/.test(location.search);if(PREVIEW&&window.CFL_CONFIG){window.CFL_CONFIG.firebase=null;window.CFL_CONFIG.requireCode=false;}const CFG=window.CFL_CONFIG||{},modules=curriculum(CFG),loaded=load();if(PREVIEW){const b=document.createElement('div');b.className='preview-banner';b.textContent='Preview mode: nothing here is saved to the class record. Close the tab to discard.';document.body.prepend(b);}let S=loaded.state,storageError=loaded.error;
+const PREVIEW=/[?&]preview\b/.test(location.search);if(PREVIEW&&window.CFL_CONFIG){window.CFL_CONFIG.firebase=null;window.CFL_CONFIG.requireCode=false;}const CFG=window.CFL_CONFIG||{},modules=curriculum(CFG),loaded=load();const PREVIEW_MODULE=PREVIEW?new URLSearchParams(location.search).get('module'):null;if(PREVIEW_MODULE&&CFG.curriculum){CFG.curriculum.openMap=true;}if(PREVIEW){const b=document.createElement('div');b.className='preview-banner';b.textContent='Preview mode: nothing here is saved to the class record. Close the tab to discard.';document.body.prepend(b);}let S=loaded.state,storageError=loaded.error;
 const app=document.querySelector('#app'),drawer=document.querySelector('#drawer');
 const cloud=createCloud(CFG,()=>S,()=>persist(false),status=>{const el=document.querySelector('#save-status');if(!storageError)el.textContent=status;});
 function persist(sync=true){if(storageError?.startsWith('Saved progress'))return;if(!save(S)){storageError='Progress could not be saved on this device. Export a backup in Settings before closing.';document.querySelector('#save-status').textContent=storageError;document.querySelector('#save-status').classList.add('error');}if(sync)cloud.schedule();}
@@ -96,3 +96,7 @@ window.addEventListener('hashchange',()=>{if(location.hash==='#home')route('home
 if(CFG.assessment?.enabled){if(CFG.assessment.noCopy)['copy','cut','contextmenu'].forEach(ev=>app.addEventListener(ev,e=>{if(!e.target.closest('textarea'))e.preventDefault();}));if(CFG.assessment.swapOnLeave)document.addEventListener('visibilitychange',()=>{if(document.hidden&&S.active?.mode==='practice')S.pendingSwap=true;else if(S.pendingSwap){S.pendingSwap=false;S.practice.seed+=104729;const p=selectPractice(S,CFG);S.active=newActive(p,{mode:'practice'});persist();render();toast('A fresh variant replaced the unsubmitted assessment question.');}});}
 if(storageError){document.querySelector('#save-status').textContent=storageError;document.querySelector('#save-status').classList.add('error');}
 render();cloud.init();
+
+
+if(PREVIEW_MODULE&&modules.some(x=>x.id===PREVIEW_MODULE)){if(!S.identity){S.identity={first:'Preview',last:'P',block:(CFG.blocks?.[0]?.id)||'1'};persist();}try{startModule(PREVIEW_MODULE);persist();}catch(e){console.warn('preview open failed',e);}}
+render();
