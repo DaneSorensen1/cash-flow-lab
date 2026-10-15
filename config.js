@@ -6,6 +6,8 @@ window.CFL_CONFIG = {
   // Passcode for teacher.html (light client-side gate; the class data itself is protected by Firestore rules).
   teacherCode: 'BEACON-2026',
   terminology: { unearnedRevenue: 'Unearned Revenue' },
+  // Capstones open on evidence (3 Operating concepts Secure + 60% recent accuracy for the guided statement; 5 and 70% for the integrated one). Set requireEvidence:false to open them after the Financing module regardless.
+  capstones: { requireEvidence: true },
   // openMap: true lets students open any module from the map; false (default) unlocks modules in order.
   curriculum: { includeAccruedLiabilities: true, includeInventory: true, includeAmortization: true, includeNoncashDisclosure: true, openMap: false },
   mastery: { secureThreshold: .75, masteryThreshold: .85 },

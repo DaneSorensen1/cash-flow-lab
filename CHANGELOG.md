@@ -1,3 +1,9 @@
+## 1.2.3 — October 15, 2026 (placement guessing, capstone gate)
+
+- Misconceptions now count once per question, not once per retry, so a student cycling the section menu no longer inflates "wrong section" by dozens; the teacher page reflects distinct questions missed.
+- Placement forms carry a "Not sure which section?" aid: four plain questions that map to Operating / Investing / Financing / Disclosure. Wrong-section feedback now names the correct section and why.
+- Capstones open on evidence, not on screens seen: the guided statement needs 3 Operating concepts Secure and 60%+ recent independent accuracy; the integrated one needs the guided statement done, 5 Secure and 70%+. The tile shows the student's current numbers and points to Practice. config.js → capstones.requireEvidence:false restores the old behavior.
+
 ## 1.2.2 — October 15, 2026 (required revisits)
 
 - The Three Sections and Gains & Losses are flagged as rewritten: students who had completed them see a notice on the learning map, the tiles read "Updated: go through this again," and those modules are reopened (never locked). Attempts, scores, drafts, capstones and all other completions are kept. Completing the module again clears the flag.
