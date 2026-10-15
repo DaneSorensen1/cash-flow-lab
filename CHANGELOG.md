@@ -1,3 +1,11 @@
+## 1.3.2 — October 15, 2026 (resume where you left off; visible sequence)
+
+- A module a student has started is never locked and is never reset by backing out: leaving to the learning map, refreshing, or opening another module keeps the exact screen and step; the tile reads "In progress · pick up where you left off."
+- Continue / "do this next" goes to the module the student was working on, not to the earliest incomplete one. Rewritten-lesson revisits are no longer forced first: the notice says to redo them at a good stopping point, and their tiles stay open.
+- Modules are locked only beyond the furthest point reached (one past the last completed module, or any module already started).
+- Sequence made visible: the top tabs are numbered 1 Learn · 2 Practice · 3 Build; a journey strip on the Learn, Practice and Build pages shows the three stages with progress and one "do this next" button that always picks the right action (resume, next module, practice until the capstone gate is met, or the next statement).
+- Module-done screen states the next module and its number; after the last module it explains that step 2 is Practice until concepts are Secure and step 3 is Build. Practice-done screen offers the real next step.
+
 ## 1.3.1 — October 15, 2026 (student-experience audit)
 
 - Asset Sales reordered: cash stated → one sale, two jobs (gain, then loss, with worked statements) → book value given → the two depreciations → book value constructed → fresh numbers. Reconstruction now comes after the two-jobs idea, not before.
