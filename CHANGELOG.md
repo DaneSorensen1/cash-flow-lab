@@ -1,3 +1,12 @@
+## 1.3.1 — October 15, 2026 (student-experience audit)
+
+- Asset Sales reordered: cash stated → one sale, two jobs (gain, then loss, with worked statements) → book value given → the two depreciations → book value constructed → fresh numbers. Reconstruction now comes after the two-jobs idea, not before.
+- Investing reordered and de-duplicated: method change → cash stated → neighborhood rule → one-cause land purchase → multiple-cause trap → fresh purchase and sale → partly financed purchase.
+- Did Cash Move? opens with a plain story (baseball card for a bike).
+- Every predict / complete / fresh problem announces its layer: "Step 1 of 3 · Predict first…", "Step 2 of 3 · Same numbers, you complete each step…", "Step 3 of 3 · New numbers, no worked example…", "Other direction now…", and "One layer added:" on level-3 problems.
+- End-of-module Continue now goes to the next unfinished module, so a student who redoes a rewritten lesson returns to where they left off instead of replaying finished modules.
+- Full-path browser run as a returning student: 17 modules, 167 prompts, no errors.
+
 ## 1.3.0 — October 15, 2026 (whole-statement architecture; Investing rebuilt)
 
 - Module renamed "Asset Sales: Finding the Cash" (was "Gains & Losses"); Investing and Financing modules renamed to state their method.
