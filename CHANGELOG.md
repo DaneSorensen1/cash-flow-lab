@@ -1,3 +1,9 @@
+## 1.3.3 — October 15, 2026 (today vs before; integrity signals)
+
+- Each answer now records seconds on that step, tab switches while the question was open (count and seconds away), and pastes into the answer box. Stored with the attempt; nothing shown to students.
+- Teacher page: "Today vs before" panel (Load today's answers) with per-student answers today vs before, independent accuracy today, active minutes, modules done total, and, against a start-of-class baseline (taken automatically on first open each day, or re-marked with a button), modules completed and Secure concepts gained today.
+- Teacher page: "Integrity signals" panel flags students with repeated correct answers right after leaving the tab, pastes, a high share of under-5-second correct answers, or long time away; full timing/tab table for everyone. Labeled as signals, not proof.
+
 ## 1.3.2 — October 15, 2026 (resume where you left off; visible sequence)
 
 - A module a student has started is never locked and is never reset by backing out: leaving to the learning map, refreshing, or opening another module keeps the exact screen and step; the tile reads "In progress · pick up where you left off."
