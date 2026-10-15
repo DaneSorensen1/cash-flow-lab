@@ -1,3 +1,10 @@
+## 1.4.0 — October 15, 2026 (Test Prep)
+
+- New Test Prep tab (and a banner on the learning map). Three sections, three levels each. Every round shows what a test shows: an income statement, a comparative balance sheet with distractor rows (Cash, Equipment, Accumulated depreciation, long-term notes, Common Stock), and an "Additional information" list; the student builds the section line by line (in this section or not, direction, amount), enters the total, and gets a per-line check with the reason and the worked answer in statement layout. New numbers every round; "try again, same numbers" also available.
+- Operating (tomorrow's quiz): L1 net income + depreciation + 3 current accounts; L2 adds a gain and a cash equipment purchase as a distractor; L3 adds a loss, all six current accounts, and a stock issuance distractor. Investing and Financing follow the same pattern (cash stated → amounts to work out → a no-cash deal).
+- Scores stay on the device (best, last, rounds) and show on the Test Prep cards. They are not yet in the class record.
+- config.js → testPrep.banner changes the banner text; testPrep.hide removes it from the learning map.
+
 ## 1.3.3 — October 15, 2026 (today vs before; integrity signals)
 
 - Each answer now records seconds on that step, tab switches while the question was open (count and seconds away), and pastes into the answer box. Stored with the attempt; nothing shown to students.
