@@ -3,7 +3,7 @@ import {REVISIT_REQUIRED} from './curriculum/learning-ladders.js';
 import {learningVisual} from './ui/learning-visuals.js';
 import {hintsFor} from './engine/learning-support.js';
 import {workedStoryHTML} from './ui/worked-stories.js';
-import {esc,money,id,parseAmount,download,pct} from './utils.js';
+import {esc,money,id,parseAmount,download,pct,VERSION} from './utils.js';
 import {load,save,migrate,fresh,record,STORAGE_KEY} from './state.js';
 import {curriculum} from './curriculum/map.js';
 import {TIMING,conceptName,SKILL_NAMES} from './curriculum/concepts.js';
@@ -138,7 +138,7 @@ document.addEventListener('visibilitychange',()=>{const a=S.active;if(!a)return;
 app.addEventListener('paste',e=>{const a=S.active;if(a&&e.target.closest('#answer-form')){a.stepPaste=(a.stepPaste||0)+1;persist();}});
 if(CFG.assessment?.enabled){if(CFG.assessment.noCopy)['copy','cut','contextmenu'].forEach(ev=>app.addEventListener(ev,e=>{if(!e.target.closest('textarea'))e.preventDefault();}));if(CFG.assessment.swapOnLeave)document.addEventListener('visibilitychange',()=>{if(document.hidden&&S.active?.mode==='practice')S.pendingSwap=true;else if(S.pendingSwap){S.pendingSwap=false;S.practice.seed+=104729;const p=selectPractice(S,CFG);S.active=newActive(p,{mode:'practice'});persist();render();toast('A fresh variant replaced the unsubmitted assessment question.');}});}
 if(storageError){document.querySelector('#save-status').textContent=storageError;document.querySelector('#save-status').classList.add('error');}
-render();cloud.init();
+render();cloud.init();try{const f=document.querySelector('.footer');if(f&&!f.querySelector('.ver')){const v=document.createElement('span');v.className='ver small muted';v.textContent='v'+VERSION;f.insertBefore(v,f.querySelector('span'));}}catch(e){}
 
 
 if(PREVIEW_MODULE&&modules.some(x=>x.id===PREVIEW_MODULE)){if(!S.identity){S.identity={first:'Preview',last:'P',block:(CFG.blocks?.[0]?.id)||'1'};persist();}try{startModule(PREVIEW_MODULE);persist();}catch(e){console.warn('preview open failed',e);}}
