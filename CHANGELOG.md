@@ -1,3 +1,8 @@
+## 1.2.2 — October 15, 2026 (required revisits)
+
+- The Three Sections and Gains & Losses are flagged as rewritten: students who had completed them see a notice on the learning map, the tiles read "Updated: go through this again," and those modules are reopened (never locked). Attempts, scores, drafts, capstones and all other completions are kept. Completing the module again clears the flag.
+- Teacher page shows "Redo (rewritten): …" on Right-now cards and in the Done column so a lower module count is explained.
+
 ## 1.2.1 — October 15, 2026 (architecture + cash-first sales)
 
 - Three Sections gained a screen and exhibit making the two methods explicit: only Operating starts from Net Income (its inner lines are reconciliation math, not individual cash flows); Investing and Financing report actual cash and do not start from Net Income.

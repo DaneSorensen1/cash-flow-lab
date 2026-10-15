@@ -3,8 +3,10 @@ import {WORKED_STORIES} from './worked-stories.js';
 import {generate,choice,number} from './generators.js';
 import {money,shuffle} from '../utils.js';
 
-export const LESSON_REVISION='learning-2026-10-13-v2';
-export const REVISED_MODULES=['indirect_bridge',...Object.keys(TIMING),'depreciation','gain_on_sale'];
+export const LESSON_REVISION='learning-2026-10-15-v3';
+// Modules whose teaching changed enough that a finished student should go through them again. Completion is reopened; attempts, scores and drafts are kept.
+export const REVISIT_REQUIRED={three_sections:'2026-10-15',gain_on_sale:'2026-10-15'};
+export const REVISED_MODULES=['three_sections','indirect_bridge',...Object.keys(TIMING),'depreciation','gain_on_sale'];
 const see=(title,body,learning)=>({type:'observe',title,body,visual:{learning}});
 const source=(supplemental,bs=[],is=[])=>({company:'Beacon Bike & Repair',period:'Isolated teaching example',supplemental,bs,is});
 const task=(id,concept,src,prompts,explanation)=>({id,seed:1,concept,section:'operating',family:'guided_connection',direction:'none',tier:1,scaffoldLevel:1,sourceComplexity:'isolated',sourceTab:'supplemental',intro:'Same teaching example · connect the story before choosing a sign.',source:src,prompts:prompts.map((q,i)=>({...q,...(q.choices?{choices:shuffle(q.choices,31+i*17)}:{})})),hints:['Compare what income recognized with the cash that actually moved.',explanation],explanation,expected:{},misconceptionTargets:['M33']});
