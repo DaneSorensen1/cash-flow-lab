@@ -1,3 +1,9 @@
+## 1.2.1 — October 15, 2026 (architecture + cash-first sales)
+
+- Three Sections gained a screen and exhibit making the two methods explicit: only Operating starts from Net Income (its inner lines are reconciliation math, not individual cash flows); Investing and Financing report actual cash and do not start from Net Income.
+- Gains & Losses now teaches Investing's first question: is the cash stated? If yes, report it and stop (no carrying-amount calculation). Only when the cash is missing do carrying amount and the gain/loss become clues to reconstruct it; the formula is presented last, as the conclusion. Every Operating gain/loss line says it records no cash from the sale.
+- Fresh-number sale problems come in two versions: cash stated (report, then correct Net Income) and cash missing (reconstruct from the two clues). Independent prompts no longer name the section or amount.
+
 ## 1.2.0 — October 13, 2026 (learning revision)
 
 - Six timing modules, depreciation and gains/losses rebuilt as ladders: plain-language opener (why we care, an everyday story) → predict → worked statements with the same numbers → supported completion → fresh numbers; the increase case is finished before the decrease case begins.
