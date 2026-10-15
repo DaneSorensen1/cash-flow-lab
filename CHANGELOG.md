@@ -1,3 +1,13 @@
+## 1.3.0 — October 15, 2026 (whole-statement architecture; Investing rebuilt)
+
+- Module renamed "Asset Sales: Finding the Cash" (was "Gains & Losses"); Investing and Financing modules renamed to state their method.
+- Investing opens with an explicit method change ("Operating is complete. We are changing methods."), the simplest cash-stated purchase and sale, the one-cause vs multiple-cause rule for balance changes, and a partly financed purchase (only the cash part is a cash flow; the note is disclosed).
+- Financing opens with the same actual-cash method, the interest-paid-is-Operating caveat, and why Retained Earnings and noncash stock issues are never cash flows.
+- Asset-sale ladder: cash stated → book value and gain/loss given → cost and accumulated depreciation → Depreciation Expense vs Accumulated Depreciation screen. Fresh problems rotate four variants by level (cash stated; book value + gain/loss; constructed book value; reverse: proceeds and book value given, find the gain/loss).
+- Feedback: accumulated depreciation entered as a cash amount gets its own message; section aid notes interest is Operating.
+- Reference card: one statement/two methods; asset-sale routine; two depreciations; balance changes as clues.
+- Required revisits extended to the Investing and Financing modules and the renamed asset-sale module (progress and scores kept).
+
 ## 1.2.3 — October 15, 2026 (placement guessing, capstone gate)
 
 - Misconceptions now count once per question, not once per retry, so a student cycling the section menu no longer inflates "wrong section" by dozens; the teacher page reflects distinct questions missed.

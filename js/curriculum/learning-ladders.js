@@ -5,7 +5,7 @@ import {money,shuffle} from '../utils.js';
 
 export const LESSON_REVISION='learning-2026-10-15-v3';
 // Modules whose teaching changed enough that a finished student should go through them again. Completion is reopened; attempts, scores and drafts are kept.
-export const REVISIT_REQUIRED={three_sections:'2026-10-15',gain_on_sale:'2026-10-15'};
+export const REVISIT_REQUIRED={three_sections:'2026-10-15',gain_on_sale:'2026-10-15b',ppe_purchase:'2026-10-15',borrowing:'2026-10-15'};
 export const REVISED_MODULES=['three_sections','indirect_bridge',...Object.keys(TIMING),'depreciation','gain_on_sale'];
 const see=(title,body,learning)=>({type:'observe',title,body,visual:{learning}});
 const source=(supplemental,bs=[],is=[])=>({company:'Beacon Bike & Repair',period:'Isolated teaching example',supplemental,bs,is});
