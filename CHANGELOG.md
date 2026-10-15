@@ -1,3 +1,9 @@
+## 1.5.0 — October 15, 2026 (nothing locked; Test Prep results in the class record)
+
+- No module is locked anymore. Tiles are colored instead: green check = done, amber = in progress with a screen fraction (e.g. 4/10 screens), plain = not started with its screen count. Capstones open anytime; the gate text is now a recommendation with the student's numbers.
+- Test Prep rounds (level, score, time, and which lines were missed) sync to the class record under a new `testPrep` field. firestore.rules updated to allow it; until the rules are republished the app saves the record without that field, so nothing else breaks.
+- Teacher page: "Test Prep results" panel with each student's latest and best round per section (green 85%+, amber 60–84%, red below 60%), the lines they missed on the latest round, and the class's most-missed lines.
+
 ## 1.4.1 — October 15, 2026 (Test Prep: how-to, worked example, links to lessons)
 
 - Each Test Prep card has "How to build it": the steps in order (Operating: net income, add back depreciation, undo gain/loss, current assets opposite, current liabilities same, long-term and Cash stay out, total) and "See one built": a Level 1 round already answered with the reason under every line.

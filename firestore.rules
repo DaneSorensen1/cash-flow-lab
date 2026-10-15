@@ -20,7 +20,7 @@ service cloud.firestore {
     match /cfl_stats/{uid} {
       allow read: if owner(uid) || teacher();
       allow create, update: if owner(uid) && request.resource.data.uid == uid && identity(request.resource.data)
-        && request.resource.data.keys().hasOnly(['uid','name','block','currentModule','introduced','completedModules','concepts','skills','secure','mastered','recentAccuracy','hints','reveals','capstones','explanations','misconceptionCounts','needsHelp','recentAttempts','lastActive','attemptCount']);
+        && request.resource.data.keys().hasOnly(['uid','name','block','currentModule','introduced','completedModules','concepts','skills','secure','mastered','recentAccuracy','hints','reveals','capstones','explanations','misconceptionCounts','needsHelp','recentAttempts','lastActive','attemptCount','testPrep']);
     }
     match /cfl_attempts/{attemptId} {
       allow create: if signedIn() && request.resource.data.uid == request.auth.uid
