@@ -1,3 +1,9 @@
+## 1.4.1 — October 15, 2026 (Test Prep: how-to, worked example, links to lessons)
+
+- Each Test Prep card has "How to build it": the steps in order (Operating: net income, add back depreciation, undo gain/loss, current assets opposite, current liabilities same, long-term and Cash stay out, total) and "See one built": a Level 1 round already answered with the reason under every line.
+- Every line in every round links to theory (the lesson module that teaches that account) and practice (a short focused set on that concept). A "Back to Test Prep" button appears in the lesson header, the practice header, the module-done screen and the practice-done screen until the student returns.
+- Investing and Financing cards carry their own step lists and worked examples.
+
 ## 1.4.0 — October 15, 2026 (Test Prep)
 
 - New Test Prep tab (and a banner on the learning map). Three sections, three levels each. Every round shows what a test shows: an income statement, a comparative balance sheet with distractor rows (Cash, Equipment, Accumulated depreciation, long-term notes, Common Stock), and an "Additional information" list; the student builds the section line by line (in this section or not, direction, amount), enters the total, and gets a per-line check with the reason and the worked answer in statement layout. New numbers every round; "try again, same numbers" also available.

@@ -52,3 +52,5 @@ nav button.active .navnum{background:var(--accent,#2f6fd3)}
 .prep-table tr.ok td{background:#e7f3ed}.prep-table tr.bad td{background:#f8e9e7}.prep-table tr.total td{border-top:2px solid var(--ink,#1a1a1a);font-weight:600}
 .prep-table .mark{width:1.5em;font-weight:700}.prep-table tr.ok .mark{color:#2e7d5b}.prep-table tr.bad .mark{color:#b34d45}.prep-table .why{color:#8a2f28;display:block;margin-top:2px}
 .prep-result{margin-top:14px;padding-top:12px;border-top:1px solid var(--line,#d7dee8)}
+
+.prep-links{color:var(--muted,#5b6878)}.prep-links button.link{font-size:.8rem;padding:0 2px}.prep-how{margin:8px 0 12px;font-size:.92rem}.prep-how summary{cursor:pointer}.prep-how ol{margin:8px 0 8px 18px}.why.ok-why{color:#2e7d5b}
