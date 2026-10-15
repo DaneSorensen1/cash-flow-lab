@@ -41,7 +41,7 @@ function operatingScenario(seed,level){
  const eqB=H(30000+r()*30000),eqD=level>=2?H(2000+r()*6000):0;
  bs.push({id:'ppe',label:'Equipment, at cost',group:'Long-term Assets',begin:eqB,end:eqB+eqD});
  bs.push({id:'accum',label:'Accumulated depreciation',group:'Long-term Assets',begin:-H(8000+r()*6000),end:-H(10000+r()*8000)});
- const npB=H(10000+r()*10000);bs.push({id:'notes',label:'Notes Payable (long-term)',group:'Long-term Liabilities',begin:npB,end:npB+(level>=2?H(r()*8000):0)});
+ const npB=H(10000+r()*10000);bs.push({id:'notes',label:'Notes Payable (long-term)',group:'Long-term Liabilities',begin:npB,end:npB+(level>=2?H(1000+r()*7000):0)});
  bs.push({id:'stock',label:'Common Stock',group:'Stockholders’ Equity',begin:20000,end:level>=3?25000:20000});
  const supplemental=[];
  if(sale){const proceeds=sale.kind==='gain'?sale.book+sale.amount:sale.book-sale.amount;supplemental.push(`Sold equipment with a book value of ${money(sale.book)} for ${money(proceeds)} cash.`);}
@@ -54,10 +54,13 @@ function operatingScenario(seed,level){
  if(sale)list.push({id:'sale',module:'gain_on_sale',concept:sale.kind==='gain'?'gain_on_sale':'loss_on_sale',label:sale.kind==='gain'?'Gain on sale of equipment':'Loss on sale of equipment',source:`Income statement: ${money(sale.amount)}`,correct:{effect:sale.kind==='gain'?'subtract':'add',amount:sale.amount},why:sale.kind==='gain'?'The gain raised net income, but the sale cash belongs in Investing. Subtract the gain so it is not counted twice.':'The loss lowered net income, but no operating cash left. Add it back; the sale cash belongs in Investing.'});
  list.push(...items);
  list.push({id:'cash_row',module:'cash_change',label:'Change in Cash',source:`Cash: ${fmt(bs[0].begin)} → ${fmt(bs[0].end)}`,correct:{effect:'none',amount:0},why:'Cash is what the whole statement explains. It is never a line inside any section.'});
- if(level>=2)list.push({id:'equip',module:'ppe_purchase',concept:'ppe_purchase',label:'Purchase of equipment',source:`Equipment: ${fmt(eqB)} → ${fmt(eqB+eqD)}; supplemental says bought for cash`,correct:{effect:'none',amount:0},why:'Buying a long-term asset is Investing, not Operating.'});
+ if(level>=2)list.push({id:'equip',module:'ppe_purchase',concept:'ppe_purchase',label:'Change in Equipment (bought for cash)',source:`Equipment: ${fmt(eqB)} → ${fmt(eqB+eqD)}; supplemental says bought for cash`,correct:{effect:'none',amount:0},why:'Buying a long-term asset is Investing, not Operating.'});
  list.push({id:'accum_row',module:'depreciation',concept:'depreciation',label:'Change in Accumulated depreciation',source:`Accumulated depreciation: ${fmt(bs.find(b=>b.id==='accum').begin)} → ${fmt(bs.find(b=>b.id==='accum').end)}`,correct:{effect:'none',amount:0},why:'Accumulated depreciation is a running total, not a cash flow. The depreciation expense line already handles this year’s charge.'});
  if(level>=2)list.push({id:'notes_row',module:'borrowing',concept:'borrowing',label:'Change in Notes Payable (long-term)',source:`Notes Payable: ${fmt(npB)} → ${fmt(bs.find(b=>b.id==='notes').end)}`,correct:{effect:'none',amount:0},why:'Borrowing is Financing, not Operating.'});
  if(level>=3)list.push({id:'stock_row',module:'borrowing',concept:'stock_issuance',label:'Issued common stock',source:'Supplemental: issued stock for $5,000 cash',correct:{effect:'none',amount:0},why:'Cash from owners is Financing, not Operating.'});
+ // Walk the balance sheet in its own order after the income statement items, so distractors sit where they do on a test.
+ const ORDER=['dep','sale','cash_row','ar','inv','prepaid','equip','accum_row','ap','wages','unearned','notes_row','stock_row'];
+ list.sort((x,y)=>ORDER.indexOf(x.id)-ORDER.indexOf(y.id));
  const total=ni+list.reduce((n,x)=>n+(x.correct.effect==='add'?x.correct.amount:x.correct.effect==='subtract'?-x.correct.amount:0),0);
  return {section:'operating',company,level,seed,source:{company,period:'Year ended December 31',is:isRows,bs,supplemental},start:{label:'Net income',amount:ni},items:list,total};
 }

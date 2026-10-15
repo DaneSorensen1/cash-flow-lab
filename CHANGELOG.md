@@ -1,3 +1,11 @@
+## 1.5.2 — October 15, 2026 (audit pass)
+
+- Test Prep: items now follow the balance sheet's own order after the income-statement items, so distractor rows (Cash, Equipment, Accumulated depreciation, Notes, Stock) sit where they do on a real test instead of clustering at the end. The step list stays in view during a round (open by default at Level 1 and in worked examples).
+- Test Prep landing: "Focus on these first" lists lines missed more than once in recent rounds, each with theory and practice links.
+- Journey text no longer says capstones "open at"; it says what is recommended before them, since nothing is locked.
+- Hardened state init after reset/import; no-change distractor rows no longer appear; phone layout of rounds tightened.
+- Full-path browser run: 17 modules, 169 prompts, zero errors.
+
 ## 1.5.0 — October 15, 2026 (nothing locked; Test Prep results in the class record)
 
 - No module is locked anymore. Tiles are colored instead: green check = done, amber = in progress with a screen fraction (e.g. 4/10 screens), plain = not started with its screen count. Capstones open anytime; the gate text is now a recommendation with the student's numbers.

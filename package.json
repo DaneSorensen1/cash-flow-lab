@@ -1,6 +1,6 @@
 {
   "name": "cash-flow-lab",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "private": true,
   "type": "module",
   "description": "A local-first indirect statement of cash flows learning workbench",
