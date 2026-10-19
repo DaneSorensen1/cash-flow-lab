@@ -1,3 +1,9 @@
+## 1.7.1 — October 19, 2026 (open on the map; bigger text)
+
+- The app always opens on the learning map; a round in progress is resumed from the big practice-test button, not landed in directly. The Practice Test tab always shows its landing page first (with a "go back to it" link if an extra round is open).
+- Inside the practice test the eyebrow reads "Operating practice test · step 2 of 5" instead of "Level 1"; extra rounds are labeled Easier / Test-like / Harder.
+- Base text 17px (18px on wide screens); dropdowns, inputs and buttons at full text size; the build table at full size.
+
 ## 1.7.0 — October 19, 2026 (external audit fixes)
 
 - Operating scenarios are now fully coherent: Equipment at cost and Accumulated depreciation roll forward from the stated purchase, depreciation and sale (original cost and accumulated depreciation of the sold asset are given); Retained earnings rolls forward from net income and dividends; Cash reconciles to operating + investing + financing; both balance sheets balance and show totals. Verified over 120,000 generated scenarios (income statement foots, roll-forwards tie, gain/loss ties to book value and proceeds, perfect answer scores full marks).

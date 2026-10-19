@@ -78,3 +78,11 @@ nav button.active .navnum{background:var(--accent,#2f6fd3)}
 .statement.paper .pl.head span,.statement.paper .pl3.sec span,.statement.paper .pl3.sub span{font-weight:700}.statement.paper .pl3.head b{font-weight:700;border:0}.statement.paper .pl3.total span{font-weight:700}
 
 .prep-table select[name$='-label']{max-width:none;width:100%}
+
+/* readability: larger base text and controls */
+:root{font-size:17px}
+@media (min-width:1400px){:root{font-size:18px}}
+select,option,input,textarea,button{font-size:1rem}
+.prep-table{font-size:1rem}.prep-table small,.prep-table .why{font-size:.9rem}.prep-table input{height:2.4rem}.prep-table select{height:2.4rem}
+.small{font-size:.92rem}.eyebrow{font-size:.82rem}
+.statement.paper .pl,.statement.paper .pl3{font-size:.98rem}
