@@ -1,3 +1,8 @@
+## 1.6.0 — October 19, 2026 (Operating warm-up before the paper test)
+
+- One fixed warm-up sequence on the Test Prep page and the learning-map banner: see one section built → build one (Level 1) → build one with a gain (Level 2) → ten “why” multiple-choice questions, each followed by the reason → put two reasons into your own words and compare with a model answer → ready screen with the five rules. Progress bar with elapsed minutes; resumes where it was left.
+- The “why” score syncs to the class record; the teacher Test Prep panel has a Warm-up column.
+
 ## 1.5.2 — October 15, 2026 (audit pass)
 
 - Test Prep: items now follow the balance sheet's own order after the income-statement items, so distractor rows (Cash, Equipment, Accumulated depreciation, Notes, Stock) sit where they do on a real test instead of clustering at the end. The step list stays in view during a round (open by default at Level 1 and in worked examples).
