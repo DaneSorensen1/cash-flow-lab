@@ -1,3 +1,13 @@
+## 1.7.0 — October 19, 2026 (external audit fixes)
+
+- Operating scenarios are now fully coherent: Equipment at cost and Accumulated depreciation roll forward from the stated purchase, depreciation and sale (original cost and accumulated depreciation of the sold asset are given); Retained earnings rolls forward from net income and dividends; Cash reconciles to operating + investing + financing; both balance sheets balance and show totals. Verified over 120,000 generated scenarios (income statement foots, roll-forwards tie, gain/loss ties to book value and proceeds, perfect answer scores full marks).
+- Documents are laid out like the paper test: multi-step income statement; balance sheet with 2026 then 2025 columns and totals; numbered additional information (dividends now included at Level 2+; Retained earnings and dividends are distractors).
+- Practice test step 3 is a blank-form build (no labels given; pick the account, direction and amount for each line), always with a gain and the five current accounts used on the paper test. Resuming the practice test keeps the current draft instead of starting a new scenario.
+- Grading credits the total when it correctly adds the student’s own lines (carry-forward, same as the paper rubric), and says which it was. Reasons show on every line after grading; the worked answer shows by default.
+- Rewrote the line reasons and the seven operating steps to be exact: A/R and A/P changes are net gaps between cash and what net income counted; inventory and A/P are explained together; depreciation “reduced net income without using cash”; parentheses mean “subtract,” not necessarily cash paid; the excluded accounts are named instead of “everything long-term.”
+- Why-questions: twelve items (added Unearned Revenue decrease and cash dividends); “paying a supplier for inventory”; depreciation, A/R and A/P reasons corrected. Completion screen reports performance and lists missed lines rather than declaring readiness.
+- Teacher coaching: equipment at cost vs. accumulated depreciation corrected; the “every week” operating test replaced; A/P bar-tab example tied to inventory purchases.
+
 ## 1.6.1 — October 19, 2026 (one practice test, impossible to miss)
 
 - The warm-up is now the "Operating practice test": one big block at the top of the learning map, the journey strip's next step, and the "Practice Test" tab. Extra rounds and the Investing/Financing builders are collapsed under "Extra rounds (optional)" so there is one obvious thing to do.

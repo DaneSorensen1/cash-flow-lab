@@ -70,3 +70,11 @@ nav button.active .navnum{background:var(--accent,#2f6fd3)}
 .warm-opts{display:flex;flex-direction:column;gap:8px;align-items:stretch}.warm-opts .opt{width:100%}
 
 .prep-banner.big{padding:16px 20px;border-width:2px}.button.big,button.big{font-size:1.05rem;padding:12px 20px}.prep-more{margin-top:18px}.prep-more>summary{cursor:pointer;padding:8px 0}
+
+.statement.paper .pl,.statement.paper .pl3{display:grid;padding:3px 0;border-bottom:1px solid var(--line,#d7dee8);font-size:.92rem}
+.statement.paper .pl{grid-template-columns:1fr 110px}.statement.paper .pl3{grid-template-columns:1fr 100px 100px}
+.statement.paper .pl b,.statement.paper .pl3 b{text-align:right;font-weight:500}.statement.paper .pl.in span,.statement.paper .pl.in{padding-left:16px}
+.statement.paper .pl.sub b,.statement.paper .pl3.total b{border-top:1px solid var(--ink,#1a1a1a)}.statement.paper .pl.total b{border-top:1px solid var(--ink,#1a1a1a);border-bottom:3px double var(--ink,#1a1a1a);font-weight:700}
+.statement.paper .pl.head span,.statement.paper .pl3.sec span,.statement.paper .pl3.sub span{font-weight:700}.statement.paper .pl3.head b{font-weight:700;border:0}.statement.paper .pl3.total span{font-weight:700}
+
+.prep-table select[name$='-label']{max-width:none;width:100%}
