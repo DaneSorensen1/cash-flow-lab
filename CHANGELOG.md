@@ -1,3 +1,7 @@
+## 1.7.2 — October 19, 2026
+
+- The Cash Mystery gains a screen that states plainly why the change in Cash is never a line inside a section (the sections are the causes; the change in Cash is the result; use the Cash row to check the finished statement). The practice-test reason for "Change in Cash" and the completion-screen rules say the same thing.
+
 ## 1.7.1 — October 19, 2026 (open on the map; bigger text)
 
 - The app always opens on the learning map; a round in progress is resumed from the big practice-test button, not landed in directly. The Practice Test tab always shows its landing page first (with a "go back to it" link if an extra round is open).
