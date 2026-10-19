@@ -1,3 +1,10 @@
+## 1.8.0 — October 19, 2026 (one plain pattern for every reason)
+
+- Every explanation now follows one pattern: what net income counts and when; what cash counts and when; which way this account moved and by how much; therefore add or subtract that amount. Applied to all practice-test line reasons (with the actual dollar amounts), the twelve why-questions, the two model answers, the seven operating steps, and the completion rules.
+- The whole idea sits at the top of every build: "Net income counts revenue when it is earned and expenses when they happen. Cash counts money when it actually moves. Each line closes one gap between the two."
+- Each timing module (A/R, A/P, Wages Payable, Unearned Revenue, Prepaid Expenses, Inventory), Depreciation and Asset Sales now shows "The rule, in plain words" in its header on every screen (collapsed on the first screen, open afterwards), so the rule stays visible while students work the examples. Lesson screens and positions are unchanged.
+- "Leave it out" lines for Cash, Equipment, Accumulated depreciation, Notes, Stock, Retained earnings and dividends are one sentence each.
+
 ## 1.7.2 — October 19, 2026
 
 - The Cash Mystery gains a screen that states plainly why the change in Cash is never a line inside a section (the sections are the causes; the change in Cash is the result; use the Cash row to check the finished statement). The practice-test reason for "Change in Cash" and the completion-screen rules say the same thing.
