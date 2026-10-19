@@ -1,3 +1,8 @@
+## 1.6.1 — October 19, 2026 (one practice test, impossible to miss)
+
+- The warm-up is now the "Operating practice test": one big block at the top of the learning map, the journey strip's next step, and the "Practice Test" tab. Extra rounds and the Investing/Financing builders are collapsed under "Extra rounds (optional)" so there is one obvious thing to do.
+- Continue Learning on the hero always resumes the learning path (it no longer redirects to the practice test).
+
 ## 1.6.0 — October 19, 2026 (Operating warm-up before the paper test)
 
 - One fixed warm-up sequence on the Test Prep page and the learning-map banner: see one section built → build one (Level 1) → build one with a gain (Level 2) → ten “why” multiple-choice questions, each followed by the reason → put two reasons into your own words and compare with a model answer → ready screen with the five rules. Progress bar with elapsed minutes; resumes where it was left.

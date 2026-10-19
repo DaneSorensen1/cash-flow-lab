@@ -68,3 +68,5 @@ nav button.active .navnum{background:var(--accent,#2f6fd3)}
 .notice.ok{border-left-color:#2e7d5b}.notice.bad{border-left-color:#b34d45}
 
 .warm-opts{display:flex;flex-direction:column;gap:8px;align-items:stretch}.warm-opts .opt{width:100%}
+
+.prep-banner.big{padding:16px 20px;border-width:2px}.button.big,button.big{font-size:1.05rem;padding:12px 20px}.prep-more{margin-top:18px}.prep-more>summary{cursor:pointer;padding:8px 0}
