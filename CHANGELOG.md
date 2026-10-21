@@ -1,3 +1,9 @@
+## 1.10.0 — October 21, 2026 (Financing practice test)
+
+- Financing scenarios rebuilt around documents: additional information (borrowing, a loan payment split into principal and interest, stock issued, dividends stated or hidden in retained earnings, and at the harder level a share buyback and a building acquired by note), income statement lines (depreciation, interest expense, net income), and balance sheet rows (notes payable, common stock, retained earnings, treasury stock) that roll forward from the deals; verified over 90,000 generated cases.
+- Financing practice test (same five steps) available on the Practice Test page below the Investing one; its twelve why-questions and two model answers follow the one-pattern rule; scores sync and show on the teacher page. The map keeps leading with Investing until the focus is switched.
+- Financing module shows its rule in plain words in the header.
+
 ## 1.9.2 — October 21, 2026
 
 - Investing practice test step 3 now matches the paper test exactly: the sale gives cost, accumulated depreciation and the gain or loss (book value must be built), land is part cash part note, and one asset is acquired by a note with no cash.
