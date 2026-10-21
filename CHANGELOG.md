@@ -1,3 +1,8 @@
+## 1.9.2 — October 21, 2026
+
+- Investing practice test step 3 now matches the paper test exactly: the sale gives cost, accumulated depreciation and the gain or loss (book value must be built), land is part cash part note, and one asset is acquired by a note with no cash.
+- Stage 3 on the map says to do Asset Sales (stage 2) first.
+
 ## 1.9.1 — October 21, 2026 (the map reads as a course)
 
 - The learning map is organized as four stages, each with a one-sentence purpose and a done count: What the statement answers → Operating: start from net income and fix it (timing accounts; a noncash expense; selling an asset) → Investing: actual cash for long-term assets → Financing, and deals with no cash. A short orientation line sits above it.
