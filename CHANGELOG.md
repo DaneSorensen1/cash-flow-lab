@@ -1,3 +1,8 @@
+## 1.10.4 — October 21, 2026 (updates replace old questions at once)
+
+- A rewritten lesson replaces an old in-progress question immediately; nobody is held on an old question. The app checks for a new version every two minutes and shows an "Update now" bar (and reloads itself the next time the learning map is opened).
+- Blank-form build: a "Leave out (not in this section)" choice; rows left empty or marked leave-out are simply ignored. Instructions say to use only the rows you need.
+
 ## 1.10.3 — October 21, 2026
 
 - Nothing is mandatory to get past: every lesson question has "Skip this question →" (nothing recorded); practice-test rounds have "Skip this step →"; "Check my section" grades whatever is entered instead of refusing until every line is decided.

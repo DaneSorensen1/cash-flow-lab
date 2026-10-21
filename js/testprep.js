@@ -195,7 +195,7 @@ export function grade(sc,draft){
 }
 // Blank-form mode: the student fills slots (label + direction + amount) with no labels supplied, like the paper test.
 function gradeBlank(sc,draft){
- const slots=(draft.__slots||[]).map((s,i)=>({i,label:s?.label||'',effect:s?.effect||'',amount:parseAmt(s?.amount)})).filter(s=>s.label||s.effect||s.amount);
+ const slots=(draft.__slots||[]).map((s,i)=>({i,label:s?.label||'',effect:s?.effect||'',amount:parseAmt(s?.amount)})).filter(s=>(s.label||s.effect||s.amount)&&s.effect!=='none');
  const required=sc.items.filter(it=>it.correct.effect!=='none');
  const used=new Set();
  const rows=required.map(it=>{const s=slots.find(s=>!used.has(s.i)&&s.label===it.label);if(!s)return {item:it,ok:false,missing:true,effOK:false,amtOK:false,effect:'',amount:0};used.add(s.i);const effOK=s.effect===it.correct.effect,amtOK=Math.abs(s.amount-it.correct.amount)<1;return {item:it,ok:effOK&&amtOK,effOK,amtOK,effect:s.effect,amount:s.amount,slot:s.i};});

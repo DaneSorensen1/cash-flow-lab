@@ -94,3 +94,5 @@ select,option,input,textarea,button{font-size:1rem}
 .path-stage{margin:18px 0 26px;padding:14px 16px;border:1px solid var(--line,#d7dee8);border-radius:14px;background:var(--surface,#fff)}
 .stage-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}.stage-head h3{margin:2px 0 4px;font-size:1.2rem}
 .path-stage .path-group{margin:10px 0 0}.path-stage h4.eyebrow{margin:10px 0 6px}
+
+.update-banner{background:#153f3c;color:#fff;padding:8px 14px;text-align:center;font-size:.95rem}.update-banner button{margin-left:8px;padding:4px 10px}
