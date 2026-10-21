@@ -1,3 +1,8 @@
+## 1.9.1 — October 21, 2026 (the map reads as a course)
+
+- The learning map is organized as four stages, each with a one-sentence purpose and a done count: What the statement answers → Operating: start from net income and fix it (timing accounts; a noncash expense; selling an asset) → Investing: actual cash for long-term assets → Financing, and deals with no cash. A short orientation line sits above it.
+- Module titles use the words students meet on the tests: "Wages Payable (Accrued Liabilities)", "Profit Counts First: A/R, A/P, Wages", "Cash Comes First: Deposits and Prepayments", "Depreciation: Expense with No Cash", "Deals With No Cash".
+
 ## 1.9.0 — October 21, 2026 (Investing practice test)
 
 - Investing scenarios rebuilt around documents: additional-information list, income statement lines (depreciation, gain or loss), and balance sheet rows (Equipment, Accumulated depreciation, Land, Notes payable) that roll forward from the deals; verified over 180,000 generated cases. Levels: cash amounts stated → proceeds worked out from book value and a gain or loss, land part cash part note → plus an asset acquired by note and book value built from cost and accumulated depreciation. Distractors: the gain or loss itself, depreciation, inventory, borrowing, dividends, the net Equipment change.
