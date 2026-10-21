@@ -1,3 +1,9 @@
+## 1.10.1 — October 21, 2026 (teacher page covers the practice tests)
+
+- Right-now board: a student inside a practice test shows as "Investing practice test · step 3 of 5 · Build on a blank form"; extra rounds and the Practice Test page show too. Each card now carries stage progress (Statement 3/3 · Operating 9/11 · Investing 1/1 · Financing 0/2) and practice-test status (in progress with step and why-score so far, or done with the date).
+- Test Prep results panel: a Practice tests column with the same status, plus the existing why-scores and build scores for Operating, Investing and Financing.
+- Class record now carries practice-test status (current section, step, started/finished, why progress) under the existing testPrep field; no rules change needed.
+
 ## 1.10.0 — October 21, 2026 (Financing practice test)
 
 - Financing scenarios rebuilt around documents: additional information (borrowing, a loan payment split into principal and interest, stock issued, dividends stated or hidden in retained earnings, and at the harder level a share buyback and a building acquired by note), income statement lines (depreciation, interest expense, net income), and balance sheet rows (notes payable, common stock, retained earnings, treasury stock) that roll forward from the deals; verified over 90,000 generated cases.
