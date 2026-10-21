@@ -1,3 +1,10 @@
+## 1.9.0 — October 21, 2026 (Investing practice test)
+
+- Investing scenarios rebuilt around documents: additional-information list, income statement lines (depreciation, gain or loss), and balance sheet rows (Equipment, Accumulated depreciation, Land, Notes payable) that roll forward from the deals; verified over 180,000 generated cases. Levels: cash amounts stated → proceeds worked out from book value and a gain or loss, land part cash part note → plus an asset acquired by note and book value built from cost and accumulated depreciation. Distractors: the gain or loss itself, depreciation, inventory, borrowing, dividends, the net Equipment change.
+- Practice tests are now per section. The learning map and the Practice Test tab lead with the Investing practice test (config: testPrep.focus); the Operating one stays available below it. Same five steps: worked example → cash-stated build → blank-form build → twelve why-questions with reasons → two say-it-in-words prompts with model answers. Investing why-scores sync to the class record and show on the teacher page.
+- Lessons: Asset Sales lost a filler screen; the Investing module ends with "What a finished Investing section looks like"; Asset Sales, Investing and Noncash now show their rule in plain words in the header on every screen.
+- Every Investing reason follows one pattern: what Investing counts (actual cash for long-term assets), what moved and how much, therefore inflow, outflow, or leave it out.
+
 ## 1.8.0 — October 19, 2026 (one plain pattern for every reason)
 
 - Every explanation now follows one pattern: what net income counts and when; what cash counts and when; which way this account moved and by how much; therefore add or subtract that amount. Applied to all practice-test line reasons (with the actual dollar amounts), the twelve why-questions, the two model answers, the seven operating steps, and the completion rules.

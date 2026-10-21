@@ -1,4 +1,4 @@
-export const VERSION = '1.8.0';
+export const VERSION = '1.9.0';
 export const CONTENT_VERSION = '2026.10.15.1';
 export const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const money = n => n < 0 ? `($${Math.abs(n).toLocaleString('en-US')})` : `$${n.toLocaleString('en-US')}`;

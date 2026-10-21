@@ -86,20 +86,56 @@ function operatingScenario(seed,level,opts={}){
   check:{dCash,investing:proceeds-eqD,financing:borrow-div+stockIssue,eqRoll:[eqB,eqD,soldCost,eqE],adRoll:[adB,dep,soldAccum,adE],reRoll:[reB,ni,div,reE]}};
 }
 
-function investingScenario(seed,level){
- const r=rng(seed*104729+level*17);const company=pick(r,COMPANIES);const list=[];const supplemental=[];
- const LINK={'Purchase of equipment':['ppe_purchase','ppe_purchase'],'Sale of truck':['ppe_purchase','ppe_sale'],'Sale of equipment':['gain_on_sale','ppe_sale'],'Purchase of land':['ppe_purchase','ppe_purchase'],'Van acquired with a note':['noncash_investing_financing','noncash_investing_financing'],'Depreciation expense':['depreciation','depreciation'],'Purchase of inventory':['inventory','inventory'],'Borrowed on a bank loan':['borrowing','borrowing']};const add=(label,source,effect,amount,why)=>{const [module,concept]=LINK[label]||[];list.push({id:'i'+list.length,module,concept,label,source,correct:{effect,amount},why});};
- const buy=H(10000+r()*30000);supplemental.push(`Bought equipment for ${money(buy)} cash.`);add('Purchase of equipment',`Supplemental: bought for ${money(buy)} cash`,'subtract',buy,'Cash paid for a long-term asset: Investing outflow.');
- const book=H(3000+r()*9000),isGain=r()<0.5,ga=H(200+r()*1500),proceeds=isGain?book+ga:book-ga;
- if(level===1){supplemental.push(`Sold an old truck for ${money(proceeds)} cash.`);add('Sale of truck',`Supplemental: sold for ${money(proceeds)} cash`,'add',proceeds,'Cash received for a long-term asset: Investing inflow. The amount is stated, so no calculation.');}
- else{supplemental.push(`Sold equipment with a book value of ${money(book)} at a ${money(ga)} ${isGain?'gain':'loss'}.`);add('Sale of equipment',`Supplemental: book value ${money(book)}, ${isGain?'gain':'loss'} ${money(ga)}`,'add',proceeds,`${isGain?'Gain':'Loss'} means the buyer paid ${isGain?'more':'less'} than book value: ${money(book)} ${isGain?'+':'−'} ${money(ga)} = ${money(proceeds)} cash in.`);}
- if(level>=2){const land=H(20000+r()*30000),landCash=H(land*0.3);supplemental.push(`Bought land for ${money(land)}, paying ${money(landCash)} cash and signing a note for the rest.`);add('Purchase of land',`Supplemental: ${money(land)} price, ${money(landCash)} cash`,'subtract',landCash,`Only the cash part is a cash flow: ${money(landCash)}. The note part is disclosed separately.`);}
- if(level>=3){supplemental.push('Bought a delivery van by signing a $24,000 note. No cash was paid.');add('Van acquired with a note','Supplemental: $24,000 note, no cash','none',0,'No cash moved, so it is not in any section. It goes in the separate noncash note.');}
- add('Depreciation expense',`Income statement: ${money(H(2000+r()*3000))}`,'none',0,'Depreciation belongs to the Operating reconciliation, not Investing.');
- add('Purchase of inventory',`Supplemental: bought ${money(H(5000+r()*8000))} of inventory`,'none',0,'Inventory is part of day-to-day operations, so it is Operating, not Investing.');
- if(level>=2)add('Borrowed on a bank loan',`Supplemental: borrowed ${money(H(10000+r()*20000))}`,'none',0,'Cash from a lender is Financing.');
- const total=list.reduce((n,x)=>n+(x.correct.effect==='add'?x.correct.amount:x.correct.effect==='subtract'?-x.correct.amount:0),0);
- return {section:'investing',company,level,seed,source:{company,period:'Year ended December 31',is:[],bs:[],supplemental},start:null,items:shuffle(r,list),total};
+// opts: {force:'gain'|'loss', blank:true}
+function investingScenario(seed,level,opts={}){
+ const r=rng(seed*104729+level*17);const company=pick(r,COMPANIES);
+ // --- the deals ---
+ const eqBuy=H(8000+r()*20000);
+ const soldCost=H(6000+r()*10000);let soldAccum=H(soldCost*(0.4+r()*0.3));if(soldCost-soldAccum<1000)soldAccum=soldCost-1000;const book=soldCost-soldAccum;
+ const saleKind=level===1?'book':(opts.force||(r()<0.5?'gain':'loss'));
+ let ga=saleKind==='book'?0:H(300+r()*1500);if(saleKind==='loss'&&book-ga<500)ga=Math.max(300,book-500);const proceeds=saleKind==='gain'?book+ga:saleKind==='loss'?book-ga:book;
+ const landPrice=H(10000+r()*20000);const landCash=level===1?landPrice:H(landPrice*(0.3+r()*0.3));const landNote=landPrice-landCash;
+ const van=level>=3?H(12000+r()*10000):0;
+ const dep=H(2000+r()*4000),invBuy=H(5000+r()*8000),borrow=level>=2?H(5000+r()*15000):0,div=level>=2?H(1000+r()*3000):0;
+ const total=-eqBuy+proceeds-landCash;
+ // --- balance sheet rows rolled forward from the deals ---
+ const eqB=H(40000+r()*30000),eqE=eqB+eqBuy+van-soldCost;
+ const adB=H(12000+r()*8000),adE=adB+dep-soldAccum;
+ const landB=H(20000+r()*20000),landE=landB+landPrice;
+ const npB=H(10000+r()*10000),npE=npB+landNote+van+borrow;
+ const row=(id,label,begin,end)=>({id,label,begin,end});
+ const bsRows=[row('ppe','Equipment',eqB,eqE),row('accum','Less: Accumulated depreciation',-adB,-adE),row('land','Land',landB,landE)];
+ if(level>=2)bsRows.push(row('notes','Notes payable (long-term)',npB,npE));
+ const isRows=[['Depreciation expense',-dep]];
+ if(saleKind==='gain')isRows.push(['Gain on sale of equipment',ga]);if(saleKind==='loss')isRows.push(['Loss on sale of equipment',-ga]);
+ // --- additional information ---
+ const supplemental=[];
+ supplemental.push(`New equipment was purchased for ${money(eqBuy)} cash.`);
+ if(saleKind==='book')supplemental.push(`Old equipment that originally cost ${money(soldCost)} and had accumulated depreciation of ${money(soldAccum)} was sold for ${money(proceeds)} cash.`);
+ else if(level===2)supplemental.push(`Old equipment with a book value of ${money(book)} was sold at a ${money(ga)} ${saleKind}. (Book value = cost ${money(soldCost)} − accumulated depreciation ${money(soldAccum)}.)`);
+ else supplemental.push(`Old equipment that originally cost ${money(soldCost)} and had accumulated depreciation of ${money(soldAccum)} was sold. The income statement shows a ${money(ga)} ${saleKind} on the sale.`);
+ if(level===1)supplemental.push(`Land was purchased for ${money(landPrice)} cash.`);
+ else supplemental.push(`Land was purchased for ${money(landPrice)}: ${money(landCash)} was paid in cash and a long-term note was signed for the other ${money(landNote)}.`);
+ if(level>=3)supplemental.push(`A delivery van was acquired for ${money(van)} by signing a long-term note. No cash was paid.`);
+ supplemental.push(`Inventory purchases during the year totaled ${money(invBuy)}.`);
+ if(level>=2)supplemental.push(`The company borrowed ${money(borrow)} from the bank on a long-term note.`);
+ if(level>=2)supplemental.push(`Cash dividends of ${money(div)} were paid.`);
+ // --- items: real lines first, then everything a student might wrongly include ---
+ const INV='Investing counts only cash paid for long-term assets and cash received from selling them.';
+ const list=[];
+ list.push({id:'buy',module:'ppe_purchase',concept:'ppe_purchase',line:'Purchase of equipment',label:'Purchase of equipment',source:`Additional information: bought for ${money(eqBuy)} cash`,correct:{effect:'subtract',amount:eqBuy},why:`${INV} Equipment is a long-term asset and ${money(eqBuy)} of cash went out to buy it. Outflow ${money(eqBuy)}.`});
+ const saleWhy=saleKind==='book'?`${INV} The buyer paid ${money(proceeds)} cash for the old equipment, so that is the inflow. Cost and accumulated depreciation are bookkeeping, not cash.`:saleKind==='gain'?`${INV} The cash is not stated, so rebuild it: book value ${money(book)} + gain ${money(ga)} = ${money(proceeds)} received. A gain means the buyer paid more than book value. Inflow ${money(proceeds)}.`:`${INV} The cash is not stated, so rebuild it: book value ${money(book)} − loss ${money(ga)} = ${money(proceeds)} received. A loss means the buyer paid less than book value. Inflow ${money(proceeds)}.`;
+ list.push({id:'sale',module:'gain_on_sale',concept:'ppe_sale',line:'Sale of equipment',label:'Sale of equipment',source:level===1?`Additional information: sold for ${money(proceeds)} cash`:`Additional information: book value ${money(book)}, ${saleKind} ${money(ga)}`,correct:{effect:'add',amount:proceeds},why:saleWhy});
+ list.push({id:'land',module:'ppe_purchase',concept:'ppe_purchase',line:'Purchase of land',label:'Purchase of land',source:level===1?`Additional information: ${money(landPrice)} cash`:`Additional information: ${money(landCash)} cash + ${money(landNote)} note`,correct:{effect:'subtract',amount:landCash},why:level===1?`${INV} Land is a long-term asset and ${money(landPrice)} of cash went out. Outflow ${money(landPrice)}.`:`${INV} Only ${money(landCash)} of cash went out; the ${money(landNote)} note is a promise to pay later, not cash. Outflow ${money(landCash)}. The note part is listed in a separate note under the statement.`});
+ if(level>=3)list.push({id:'van',module:'noncash_investing_financing',concept:'noncash_investing_financing',label:'Van acquired by signing a note',source:`Additional information: ${money(van)} note, no cash`,correct:{effect:'none',amount:0},why:'No cash moved, so it is not a cash flow in any section. It goes in a separate note under the statement.'});
+ if(saleKind!=='book')list.push({id:'gl',module:'gain_on_sale',concept:saleKind==='gain'?'gain_on_sale':'loss_on_sale',label:`${saleKind==='gain'?'Gain':'Loss'} on sale of equipment`,source:`Income statement: ${money(ga)}`,correct:{effect:'none',amount:0},why:`The ${saleKind} is the difference between the cash received and book value, not the cash itself. Investing reports the cash (${money(proceeds)}); the ${saleKind} is handled in Operating. Leave it out here.`});
+ list.push({id:'dep',module:'depreciation',concept:'depreciation',label:'Depreciation expense',source:`Income statement: ${money(dep)}`,correct:{effect:'none',amount:0},why:'Depreciation is an expense with no cash. It is an Operating adjustment, not an Investing line. Leave it out.'});
+ list.push({id:'inv',module:'inventory',concept:'inventory',label:'Purchase of inventory',source:`Additional information: ${money(invBuy)}`,correct:{effect:'none',amount:0},why:'Inventory is bought to sell in the normal business. That is Operating, not Investing. Leave it out.'});
+ if(level>=2)list.push({id:'borrow',module:'borrowing',concept:'borrowing',label:'Borrowed on note payable',source:`Additional information: ${money(borrow)}`,correct:{effect:'none',amount:0},why:'Borrowing is cash from a lender: Financing. Leave it out.'});
+ if(level>=2)list.push({id:'div',module:'borrowing',concept:'dividends',label:'Cash dividends paid',source:`Additional information: ${money(div)}`,correct:{effect:'none',amount:0},why:'Paying owners is Financing. Leave it out.'});
+ if(level>=2)list.push({id:'eqchg',module:'ppe_purchase',concept:'ppe_purchase',label:'Change in Equipment (at cost)',source:`Equipment: ${fmt(eqB)} → ${fmt(eqE)}`,correct:{effect:'none',amount:0},why:`The balance change mixes the purchase and the sale (${fmt(eqB)} + ${fmt(eqBuy+van)} − ${fmt(soldCost)} = ${fmt(eqE)}). Use the deals, one line each, not the net change.`});
+ return {section:'investing',company,level,seed,opts,source:{company,period:'Year ended December 31, 2026',kind:'investing',paperStyle:true,paperIS:isRows,bsRows,supplemental,is:[],bs:[]},start:null,items:list,total,blank:!!opts.blank,
+  check:{eqRoll:[eqB,eqBuy+van,soldCost,eqE],adRoll:[adB,dep,soldAccum,adE],landRoll:[landB,landPrice,landE],npRoll:[npB,landNote+van+borrow,npE],book,proceeds,ga,saleKind}};
 }
 
 function financingScenario(seed,level){
@@ -117,7 +153,7 @@ function financingScenario(seed,level){
  return {section:'financing',company,level,seed,source:{company,period:'Year ended December 31',is:[],bs:[],supplemental},start:null,items:shuffle(r,list),total};
 }
 
-export function scenario(section,seed,level,opts={}){return section==='operating'?operatingScenario(seed,level,opts):section==='investing'?investingScenario(seed,level):financingScenario(seed,level);}
+export function scenario(section,seed,level,opts={}){return section==='operating'?operatingScenario(seed,level,opts):section==='investing'?investingScenario(seed,level,opts):financingScenario(seed,level,opts);}
 
 function parseAmt(v){return parseFloat(String(v??'').replace(/[^0-9.]/g,''))||0;}
 function parseSigned(v){const s=String(v??'').trim();const neg=/^\(.*\)$/.test(s)||/^-/.test(s);const n=parseAmt(s);return neg?-n:n;}
@@ -138,11 +174,11 @@ function gradeBlank(sc,draft){
  const used=new Set();
  const rows=required.map(it=>{const s=slots.find(s=>!used.has(s.i)&&s.label===it.label);if(!s)return {item:it,ok:false,missing:true,effOK:false,amtOK:false,effect:'',amount:0};used.add(s.i);const effOK=s.effect===it.correct.effect,amtOK=Math.abs(s.amount-it.correct.amount)<1;return {item:it,ok:effOK&&amtOK,effOK,amtOK,effect:s.effect,amount:s.amount,slot:s.i};});
  const extras=slots.filter(s=>!used.has(s.i)).map(s=>{const it=sc.items.find(it=>it.label===s.label);return {i:s.i,label:s.label||'(no account chosen)',effect:s.effect,amount:s.amount,why:it?it.why:'This account was already used, or no account was chosen.',item:it||null};});
- const startGiven=parseAmt(draft.__start);const startOK=Math.abs(startGiven-sc.start.amount)<1;
+ const startGiven=sc.start?parseAmt(draft.__start):0;const startOK=sc.start?Math.abs(startGiven-sc.start.amount)<1:true;
  const own=startGiven+slots.reduce((n,s)=>n+(s.effect==='add'?s.amount:s.effect==='subtract'?-s.amount:0),0);
  const totalGiven=parseSigned(draft.__total);const totalKey=Math.abs(totalGiven-sc.total)<1;const totalConsistent=Math.abs(totalGiven-own)<1;const totalOK=totalKey||totalConsistent;
  const lineScore=Math.max(0,rows.filter(r=>r.ok).length-extras.length);
- const max=required.length+2,score=lineScore+(startOK?1:0)+(totalOK?1:0);
+ const max=required.length+1+(sc.start?1:0),score=lineScore+(sc.start?(startOK?1:0):0)+(totalOK?1:0);
  return {rows,extras,totalGiven,totalOK,totalKey,totalConsistent,own,startOK,score,max,blank:true};
 }
 
@@ -157,13 +193,22 @@ export function totalLabel(section){return TOTAL_LABEL[section];}
 export const ONE_LINE='Net income counts revenue when it is earned and expenses when they happen. Cash counts money when it actually moves. Each line below closes one gap between the two.';
 export const PROCEDURE={
  operating:['Start with net income (bottom line of the income statement).','Add back depreciation: it is an expense with no cash.','Subtract a gain, add back a loss: the sale cash is reported in Investing.','Current assets (A/R, Inventory, Prepaid Expenses): went UP → subtract the change (cash is behind net income). Went DOWN → add it.','Current liabilities (A/P, Wages Payable, Unearned Revenue): went UP → add the change (cash is ahead of net income). Went DOWN → subtract it.','Leave out Cash, Equipment, Accumulated depreciation, Notes payable, Common stock, and Retained earnings.','Add the signed amounts. Parentheses mean subtract.'],
- investing:['Only long-term assets: equipment, land, buildings, investments. Not inventory, not depreciation.','Cash paid to buy one → outflow. Cash received from selling one → inflow.','If the cash is stated, use it and stop. If the problem gives book value and a gain or loss instead: gain → paid more than book value; loss → paid less.','If part of the price was a note, only the cash part is a cash flow. The note part is disclosed separately.','No cash moved at all (equipment for a note)? Not in any section.','Add the column. Label the total "Net cash provided (used) by investing activities."'],
+ investing:['Investing lists the actual cash paid to buy long-term assets (equipment, land, buildings, long-term investments) and the actual cash received from selling them. It does not start from net income.','Buy → cash out, in parentheses. Sell → cash in. One line per deal.','How much cash? If the problem states it, use it. If a sale gives book value and a gain or loss instead: book value + gain, or book value − loss (book value = cost − accumulated depreciation). If part of a purchase was a note, only the cash part.','No cash at all (an asset acquired by signing a note)? Not a line in any section; it goes in a separate note under the statement.','Leave out: depreciation and the gain or loss (those are Operating); borrowing, stock and dividends (Financing); inventory (Operating); the net change in the Equipment balance (use the deals instead).','Add the lines. Label the total “Net cash provided (used) by investing activities.” Parentheses mean cash went out.'],
+
  financing:['Only lenders and owners: borrow, repay principal, issue stock, pay dividends, buy back shares.','Cash in from them → inflow. Cash back to them → outflow.','A loan payment: only the principal part is Financing. Interest is Operating.','Dividends hidden in Retained Earnings: start + net income − dividends = end.','No cash moved (stock or a note given for equipment)? Not in any section.','Add the column. Label the total "Net cash provided (used) by financing activities."'],
 };
 
 // Documents laid out the way the paper test lays them out: multi-step income statement; balance sheet with This year | Last year.
 export function paperDocsHTML(sc){
  const s=sc.source;if(!s.paperStyle)return '';
+ if(s.kind==='investing'){
+  const line=([label,amt])=>`<div class="pl"><span>${esc(label)}</span><b>${fmt(amt)}</b></div>`;
+  const is=`<div class="statement paper"><div class="statement-head"><strong>${esc(s.company)}</strong><span>Income Statement (selected lines)</span><span>For the ${esc(s.period)}</span></div>${s.paperIS.map(line).join('')}</div>`;
+  const row=(r)=>`<div class="pl3"><span>${esc(r.label)}</span><b>${fmt(r.end)}</b><b>${fmt(r.begin)}</b></div>`;
+  const bs=`<div class="statement paper"><div class="statement-head"><strong>${esc(s.company)}</strong><span>Balance Sheet (selected rows)</span><span>December 31, 2026 and 2025</span></div><div class="pl3 head"><span></span><b>2026</b><b>2025</b></div>${s.bsRows.map(row).join('')}<div class="small muted" style="margin-top:6px">Selected rows only. Columns are this year (2026) then last year (2025).</div></div>`;
+  const supp=`<div class="statement paper"><div class="statement-head"><strong>${esc(s.company)}</strong><span>Additional information for 2026</span><span></span></div><ol class="supp">${s.supplemental.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>`;
+  return supp+is+bs;
+ }
  const line=([label,amt,kind])=>`<div class="pl ${kind||''}"><span>${esc(label)}</span><b>${amt==null?'':fmt(amt)}</b></div>`;
  const is=`<div class="statement paper"><div class="statement-head"><strong>${esc(s.company)}</strong><span>Income Statement</span><span>For the ${esc(s.period)}</span></div>${s.paperIS.map(line).join('')}</div>`;
  const row=(r)=>`<div class="pl3"><span>${esc(r.label)}</span><b>${fmt(r.end)}</b><b>${fmt(r.begin)}</b></div>`;
