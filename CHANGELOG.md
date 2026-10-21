@@ -1,3 +1,7 @@
+## 1.10.3 — October 21, 2026
+
+- Nothing is mandatory to get past: every lesson question has "Skip this question →" (nothing recorded); practice-test rounds have "Skip this step →"; "Check my section" grades whatever is entered instead of refusing until every line is decided.
+
 ## 1.10.2 — October 21, 2026
 
 - Students no longer enter a class code at login (first name, last initial, class).
