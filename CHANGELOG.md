@@ -1,3 +1,8 @@
+## 1.10.2 — October 21, 2026
+
+- Students no longer enter a class code at login (first name, last initial, class).
+- Teacher page: an "Open what students see" bar with one-click preview links (learning map, Practice Test page, each section's practice test, Practice, Build a Statement) plus the normal student app; previews save nothing to the class record.
+
 ## 1.10.1 — October 21, 2026 (teacher page covers the practice tests)
 
 - Right-now board: a student inside a practice test shows as "Investing practice test · step 3 of 5 · Build on a blank form"; extra rounds and the Practice Test page show too. Each card now carries stage progress (Statement 3/3 · Operating 9/11 · Investing 1/1 · Financing 0/2) and practice-test status (in progress with step and why-score so far, or done with the date).

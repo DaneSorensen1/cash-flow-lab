@@ -23,3 +23,5 @@ details.plan{margin:8px 0;border:1px dashed var(--line);border-radius:8px;paddin
 .help-card.warn{border-left:4px solid #c57b1c;display:block;padding:10px 12px}.help-card.warn ul{margin:6px 0 6px 18px}tr.muted td{color:var(--muted,#5b6878)}
 
 td.good{background:#e7f3ed}td.mid{background:#fbf1df}td.low{background:#f8e9e7}
+
+a.button{display:inline-block;padding:6px 12px;border:1px solid var(--line,#d7dee8);border-radius:999px;text-decoration:none;color:inherit;font-size:.9rem;background:#fff}a.button:hover{border-color:#2f6fd3}

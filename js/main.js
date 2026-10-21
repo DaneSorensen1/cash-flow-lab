@@ -247,4 +247,6 @@ render();cloud.init();(async()=>{try{const r=await fetch('./package.json?t='+Dat
 
 
 if(PREVIEW_MODULE&&modules.some(x=>x.id===PREVIEW_MODULE)){if(!S.identity){S.identity={first:'Preview',last:'P',block:(CFG.blocks?.[0]?.id)||'1'};persist();}try{startModule(PREVIEW_MODULE);persist();}catch(e){console.warn('preview open failed',e);}}
+const PREVIEW_PT=PREVIEW?new URLSearchParams(location.search).get('pt'):null;const PREVIEW_ROUTE=PREVIEW?new URLSearchParams(location.search).get('route'):null;
+if(PREVIEW&&(PREVIEW_PT||PREVIEW_ROUTE)){if(!S.identity){S.identity={first:'Preview',last:'P',block:(CFG.blocks?.[0]?.id)||'1'};persist();}try{if(PREVIEW_PT&&PT[PREVIEW_PT]){startWarmup(PREVIEW_PT);}else if(PREVIEW_ROUTE){route(PREVIEW_ROUTE);}}catch(e){console.warn('preview open failed',e);}}
 render();
