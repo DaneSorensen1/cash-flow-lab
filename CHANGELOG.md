@@ -1,3 +1,7 @@
+## 1.10.5 — October 21, 2026
+
+- Teacher page passcode is an on-page box instead of a browser popup (popups can be blocked, which bounced the teacher to the student app). The passcode is remembered on that computer.
+
 ## 1.10.4 — October 21, 2026 (updates replace old questions at once)
 
 - A rewritten lesson replaces an old in-progress question immediately; nobody is held on an old question. The app checks for a new version every two minutes and shows an "Update now" bar (and reloads itself the next time the learning map is opened).

@@ -1,3 +1,4 @@
+if(document.documentElement.getAttribute('data-gate')==='1'){throw new Error('teacher gate');}
 import {load,migrate} from './state.js';
 import {summarize} from './engine/summary.js';
 import {teacherConnection} from './cloud/firebase.js';
