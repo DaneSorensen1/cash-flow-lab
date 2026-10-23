@@ -1,3 +1,10 @@
+## 1.12.0 — October 23, 2026 (Financing is next)
+
+- The app now leads with the Financing practice test; a second one, "Financing practice test 2 (new problem)" (worked example with a share buyback and a building acquired by note; twelve new why-questions on bonds, dividends declared vs. paid, two lines for a net balance change, stock given for land, what a retained earnings change is), sits one click below, then Investing 2, Investing 1 and Operating.
+- Financing module (16): four added screens — the two parts of a loan payment, dividends hidden in retained earnings, buying back shares, and what a finished financing section looks like with the balance-sheet checks.
+- Both Financing practice tests end with a blank-form build at the paper test's level (loan payment split, dividends from retained earnings, a building acquired by note to leave out).
+- Teacher page shows Financing 1 and 2 status and why-scores separately.
+
 ## 1.11.0 — October 23, 2026 (Investing practice test 2)
 
 - A second Investing practice test, "Investing practice test 2 (new problem)", leads the learning map and the Practice Test page: a second worked example with a loss, a cash-stated build, a blank-form build at the paper test's level with a loss to work out, twelve new why-questions (balance change vs. the deal, gain vs. cash, land sold at a loss, a mortgage note, a long-term investment, accumulated depreciation), and two new say-it-in-words prompts. The first Investing practice test and the Operating and Financing ones remain one click below.
