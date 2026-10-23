@@ -1,3 +1,8 @@
+## 1.11.0 — October 23, 2026 (Investing practice test 2)
+
+- A second Investing practice test, "Investing practice test 2 (new problem)", leads the learning map and the Practice Test page: a second worked example with a loss, a cash-stated build, a blank-form build at the paper test's level with a loss to work out, twelve new why-questions (balance change vs. the deal, gain vs. cash, land sold at a loss, a mortgage note, a long-term investment, accumulated depreciation), and two new say-it-in-words prompts. The first Investing practice test and the Operating and Financing ones remain one click below.
+- Teacher page: status and why-scores for Investing 1 and Investing 2 shown separately on the Right-now board and the Test Prep panel.
+
 ## 1.10.5 — October 21, 2026
 
 - Teacher page passcode is an on-page box instead of a browser popup (popups can be blocked, which bounced the teacher to the student app). The passcode is remembered on that computer.
