@@ -1,3 +1,11 @@
+## 1.13.0 — October 27, 2026 (Financing audit fixes)
+
+- Financing tile (16) rebuilt: a plain two-screen opener, then the four cash-stated questions, then each hard skill taught and practiced in turn: a loan payment's two parts (worked screen + question), dividends from retained earnings (worked screen + question), buying back shares, and a new skill the paper test asks for, checking the notes payable balance when a note was signed for an asset (worked screen + question). The "declared but not yet paid" aside is gone.
+- Deals With No Cash tile (17): a screen that takes on "a note is debt, so it must be Financing," plus a shares-for-land question paired with shares-for-cash. Its rule box now opens with the no-cash sentence instead of the Investing one.
+- Financing practice tests: the question on dividends declared but not paid is replaced by one on what changes the notes payable balance without being a cash flow; the share-buyback question is replaced by a notes payable roll-forward with a note signed for a building.
+- Wording unified: the source tab is "Additional information" everywhere (was "Supplemental Information" in generated questions and the Build a Statement rounds); the "balance sheet territory" prompts now say "which part of the balance sheet."
+- Teacher CSV export: new columns for where each student is, stage progress, tiles done, and the status of all five practice tests; a note flags duplicate names (same student on two devices); preview/test accounts are excluded.
+
 ## 1.12.0 — October 23, 2026 (Financing is next)
 
 - The app now leads with the Financing practice test; a second one, "Financing practice test 2 (new problem)" (worked example with a share buyback and a building acquired by note; twelve new why-questions on bonds, dividends declared vs. paid, two lines for a net balance change, stock given for land, what a retained earnings change is), sits one click below, then Investing 2, Investing 1 and Operating.
