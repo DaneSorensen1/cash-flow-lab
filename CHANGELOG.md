@@ -1,3 +1,7 @@
+## 1.14.0 — October 29, 2026
+
+- Financing practice test 3 (new problem): a third company (worked example with a share buyback and a building acquired by note), cash-stated build, blank-form build, twelve new why-questions (a payment with principal and interest, which row finds the dividends, stock issued for cash, financing inflow vs. outflow, a falling note balance with no new borrowing, which equity changes are lines, treasury stock, shares given for land, net cash used, net income vs. dividends), two new say-it-in-words prompts. Teacher page and CSV export show it.
+
 ## 1.13.0 — October 27, 2026 (Financing audit fixes)
 
 - Financing tile (16) rebuilt: a plain two-screen opener, then the four cash-stated questions, then each hard skill taught and practiced in turn: a loan payment's two parts (worked screen + question), dividends from retained earnings (worked screen + question), buying back shares, and a new skill the paper test asks for, checking the notes payable balance when a note was signed for an asset (worked screen + question). The "declared but not yet paid" aside is gone.
